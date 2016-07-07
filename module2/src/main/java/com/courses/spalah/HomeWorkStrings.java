@@ -40,11 +40,17 @@ public class HomeWorkStrings {
      * @return результирующая строка
      */
     public static String removeSymbolFromString(String symbol, String s) {
-        String string2 = "";
+        char strSymbol = s.charAt(0);
+        String cut = "";
+         for (int i = 0; i < s.length(); i++) {
+              if ((s.charAt(i) != strSymbol) && (i ))
+               cut += s.charAt(i);
+
+        }
 
 
-
-
-        return "";
+        System.out.println(s);
+        System.out.print(cut);
+        return cut;
     }
 }
