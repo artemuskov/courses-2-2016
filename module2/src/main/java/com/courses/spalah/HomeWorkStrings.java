@@ -40,17 +40,25 @@ public class HomeWorkStrings {
      * @return результирующая строка
      */
     public static String removeSymbolFromString(String symbol, String s) {
-  /*      char strSymbol = s.charAt(0);
+        char strSymbol = s.charAt(0);
         String cut = "";
-         for (int i = 0; i < s.length(); i++) {
-              if ((s.charAt(i) != strSymbol) && (i ))
-               cut += s.charAt(i);
-
+        // Поверяем если в строке нечетное кол-во симовлов
+        if ((s.length()) % 2 != 0) {
+            for (int i = 0; i < s.length(); i++) {
+                if ((s.charAt(i) == strSymbol) && (i != 0) && (i != s.length() - 1) && (i != (s.length() - 1) / 2)) {
+                } else {
+                    cut += s.charAt(i);
+                }
+            }
+        } else {
+        // Выполняем если четное
+            for (int i = 0; i < s.length(); i++) {
+                if ((s.charAt(i) == strSymbol) && (i != 0) && (i != s.length() - 1)) {
+                } else {
+                    cut += s.charAt(i);
+                }
+            }
         }
-
-
-        System.out.println(s);
-        System.out.print(cut);
-    */    return "";
+        return cut;
     }
 }
