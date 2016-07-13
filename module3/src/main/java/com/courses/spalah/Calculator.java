@@ -58,6 +58,8 @@ public class Calculator {
         return result;
     }
 
+
+
     public static String[] readFromConsole() {
         try {
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
