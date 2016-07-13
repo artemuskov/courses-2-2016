@@ -1,5 +1,10 @@
 package com.courses.spalah;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
 /**
  * @author Ievgen Tararaka
  */
@@ -20,5 +25,42 @@ public class ConsecutiveNumbers {
      * @param args - аргументы коммандной строки
      */
     public static void main(String[] args) {
+        boolean equal = true;
+        int n = 0;
+        String[] inputstr = readFromConsole();
+        int[] mustbestr = new int[inputstr.length];
+        for (int i = 0; i < mustbestr.length; i++) {
+            mustbestr[i] = Integer.parseInt(inputstr[0]) + i;
+        }
+         while (n < inputstr.length - 1 & equal == true) {
+            for (int i = 0; i < mustbestr.length; i++) {
+                if (Integer.parseInt(inputstr[i]) == mustbestr[i]) {
+                    n ++;
+                }
+                else {
+                    equal = false;
+                    break;
+                }
+
+            }
+        }
+
+            System.out.println(Arrays.toString(inputstr));
+            System.out.println(Arrays.toString(mustbestr));
+            System.out.println("Ответ - " + equal);
+
+    }
+
+    private static String[] readFromConsole() {
+        try {
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("Строка - ");
+            String input = bufferRead.readLine();
+            System.out.print("Символ - ");
+            String separate = bufferRead.readLine();
+            return input.split(separate);
+        } catch (IOException e) {
+            return new String[]{""};
+        }
     }
 }
