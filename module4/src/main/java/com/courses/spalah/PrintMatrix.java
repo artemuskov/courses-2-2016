@@ -1,0 +1,126 @@
+package com.courses.spalah;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * @author Ievgen Tararaka
+ */
+public class PrintMatrix {
+    /**
+     * Написать программу, печатает двумерный массив заданного размера
+     * квадратом и 4-мя треугольниками.
+     *
+     * Входные параметры программы:
+     * 1. Размер массива
+     * 2. Символ для печати
+     *
+     * Пример
+     * Размер массива - 5
+     * Символ для печати - #
+     * <p>
+     * # # # # #
+     * # # # # #
+     * # # # # #
+     * # # # # #
+     * # # # # #
+     * <p>
+     * #
+     * # #
+     * # # #
+     * # # # #
+     * # # # # #
+     * <p>
+     * # # # # #
+     * # # # #
+     * # # #
+     * # #
+     * #
+     * <p>
+     *         #
+     *       # #
+     *     # # #
+     *   # # # #
+     * # # # # #
+     * <p>
+     * # # # # #
+     *   # # # #
+     *     # # #
+     *       # #
+     *         #
+     * @param args - размер массива
+     */
+    public static void main(String[] args) {
+        int size = readMatrixSize();
+        String symbol = readMatrixSymbol();
+        for(int i = 0; i <= size; i++) {
+            for(int j = 0; j <= size; j++) {
+                System.out.print(symbol + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("<p>");
+        for(int i = 0; i <= size; i++) {
+            for(int j = 0; j <= size; j++){
+                if (i <= j)
+                    System.out.print(symbol + " ");
+                else
+                    System.out.print("  ");
+            }
+            System.out.println();
+        }
+        System.out.println("<p>");
+        for(int i = 0; i <= size; i++) {
+            for(int j = 0; j <= size; j++){
+                if (i >= j)
+                    System.out.print(symbol + " ");
+                else
+                    System.out.print("  ");
+            }
+            System.out.println();
+        }
+        System.out.println("<p>");
+        for(int i = 0; i <= size; i++) {
+            for(int j = 0; j <= size; j++){
+                if (i >= size - j)
+                    System.out.print(symbol + " ");
+                else
+                    System.out.print("  ");
+            }
+            System.out.println();
+        }
+        System.out.println("<p>");
+        for(int i = 0; i <= size; i++) {
+            for(int j = 0; j <= size; j++){
+                if (i <= size - j)
+                    System.out.print(symbol + " ");
+                else
+                    System.out.print("  ");
+            }
+            System.out.println();
+        }
+        System.out.println("<p>");
+    }
+
+    private static int readMatrixSize() {
+        try {
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("Размер массива - ");
+            int mSize = (Integer.parseInt(bufferRead.readLine()));
+            return mSize;
+        } catch (IOException e) {
+            return 0;
+        }
+    }
+    private static String readMatrixSymbol() {
+        try {
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("Символ для печати - ");
+            String mSymbol = (bufferRead.readLine());
+            return mSymbol;
+        } catch (IOException e) {
+            return new String("");
+        }
+    }
+}
