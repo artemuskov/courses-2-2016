@@ -27,15 +27,10 @@
         <module name="module4" />
       </profile>
     </annotationProcessing>
-<<<<<<< HEAD
-    <bytecodeTargetLevel>
-      <module name="module2" target="1.5" />
-=======
     <bytecodeTargetLevel target="1.8">
       <module name="module2" target="1.8" />
       <module name="module3" target="1.8" />
       <module name="module4" target="1.8" />
->>>>>>> 22e9338f953042f1cb99fe53ebc1da485878ba27
     </bytecodeTargetLevel>
   </component>
 </project>
