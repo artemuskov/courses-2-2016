@@ -33,13 +33,14 @@ public class Calculator {
                     first = result;
                     second = Float.parseFloat(inputstr[1]);
                 }
-                result = doCalculate(first, second, result, oper);
+                result = doCalculate(first, second, oper);
                 System.out.println(result);
             }
         }
     }
 
-    public static float doCalculate (float first, float second, float result, String oper) {
+    public static float doCalculate (float first, float second, String oper) {
+        float result = 0;
         switch (oper.charAt(0)) {
             case '+':
                 result = first + second;
