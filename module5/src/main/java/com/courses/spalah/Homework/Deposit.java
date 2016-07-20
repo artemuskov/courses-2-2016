@@ -1,4 +1,4 @@
-package com.courses.spalah;
+package com.courses.spalah.Homework;
 
 /**
  * @author Ievgen Tararaka

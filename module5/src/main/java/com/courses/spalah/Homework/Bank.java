@@ -1,4 +1,4 @@
-package com.courses.spalah;
+package com.courses.spalah.Homework;
 
 /**
 <<<<<<< HEAD
@@ -11,6 +11,7 @@ public class Bank {
     Deposit deposit3;
 
     public void main(String[] args){
+
         System.out.print(paymentOfDeposit(3));
     }
 
