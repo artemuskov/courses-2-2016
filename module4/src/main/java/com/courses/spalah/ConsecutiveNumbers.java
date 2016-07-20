@@ -28,6 +28,7 @@ public class ConsecutiveNumbers {
         boolean equal = true;
         int n = 0;
         String[] inputstr = readFromConsole();
+
         while (n < inputstr.length - 1 & equal == true) {
             for (int i = 0; i < inputstr.length; i++) {
                 if (Integer.parseInt(inputstr[i]) == Integer.parseInt(inputstr[0]) + i) {
