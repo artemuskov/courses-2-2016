@@ -18,7 +18,7 @@ public class Deposit {
         float profit = 0;
         for(int i=1; i == n; i++){
             profit = contribution * persent / 100;
-            contribution = contribution + profit;
+            contribution += profit;
         }
         return profit;
     }
