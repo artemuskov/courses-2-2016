@@ -1,4 +1,4 @@
-package com.courses.spalah.Homework;
+package com.courses.spalah.Homework.bank;
 
 /**
  * Created by Artem Uskov on 19.07.2016.
