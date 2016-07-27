@@ -26,7 +26,10 @@
         <module name="module3" />
         <module name="module5" />
         <module name="module6" />
+<<<<<<< HEAD
         <module name="module7" />
+=======
+>>>>>>> fdd670b12934b2cd6b044900cf904a23e4b2ae81
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
