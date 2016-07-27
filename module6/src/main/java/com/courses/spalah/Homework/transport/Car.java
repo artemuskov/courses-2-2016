@@ -5,8 +5,18 @@ package com.courses.spalah.Homework.transport;
  */
 public class Car extends GroundTransport {
     private String modelName;
+    private float engineVolume;
 
-    void car(){
-        System.out.print("Легковой транспорт");
+    public Car (String modelName, float engineVolume){
+        this.modelName = modelName;
+        this.engineVolume = engineVolume;
+    }
+
+    public String getCarName (){
+        return modelName;
+    }
+
+    public float getEngineVolume (){
+        return engineVolume;
     }
 }
