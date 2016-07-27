@@ -6,4 +6,7 @@ package com.courses.spalah.Homework.transport;
 public class Car extends GroundTransport {
     private String modelName;
 
+    void car(){
+        System.out.print("Легковой транспорт");
+    }
 }

@@ -5,5 +5,5 @@ package com.courses.spalah.Homework.transport;
  */
 public class MotorcycleWithSidecar extends Motorcycle{
     String modelName;
-    boolean naveSidecar = true;
+    boolean haveSidecar = true;
 }

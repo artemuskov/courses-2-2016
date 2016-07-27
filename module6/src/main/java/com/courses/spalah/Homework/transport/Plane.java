@@ -5,7 +5,7 @@ package com.courses.spalah.Homework.transport;
  */
 public class Plane extends AirTransport {
     private String modelName;
-    private boolean longDistancemove = true;
+    private boolean longDistanceFly = true;
 
 
 }
