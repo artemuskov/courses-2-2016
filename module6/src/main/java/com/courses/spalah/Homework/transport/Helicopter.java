@@ -5,5 +5,18 @@ package com.courses.spalah.Homework.transport;
  */
 public class Helicopter extends AirTransport {
     private String modelName;
-    private boolean shortDistanceMove = true;
+    private boolean shortDistanceFly = true;
+
+    public Helicopter(String modelName, boolean shortDistanceFly){
+        this.modelName = modelName;
+        this.shortDistanceFly = shortDistanceFly;
+    }
+
+    public String getHelicopterName() {
+        return modelName;
+    }
+
+    public boolean getHelicopterproperty(){
+        return shortDistanceFly;
+    }
 }
