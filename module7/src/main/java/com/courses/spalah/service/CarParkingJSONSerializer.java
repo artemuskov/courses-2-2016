@@ -17,9 +17,24 @@ public class CarParkingJSONSerializer implements CarParkingSerializer {
         json.append("   \"parkingName\": \"");
         json.append(carParking.getParkingName() + "\",\n   \"cars\": [\n");
 
-        for (Car car : carParking.getCars())
-            json.append("\"manufacturer\": \"");
-            json.append(car.)
+        for (Car car : carParking.getCars()) {
+            json.append("           {\n");
+            json.append("         \"manufacturer\": \"");
+            json.append(car.getManufacturer() + "\",\n");
+            json.append("         \"modelName\": \"");
+            json.append(car.getModelName() + "\",\n");
+            json.append("         \"vin\": \"");
+            json.append(car.getVin() + "\",\n");
+            json.append("         \"lengthMillimeters\": ");
+            json.append(car.getLengthMillimeters() + ",\n");
+            json.append("         \"heightMillimeters\": ");
+            json.append(car.getHeightMillimeters() + "\n");
+            json.append("   },\n");
+        }
+
+        json.deleteCharAt(json.length() - 2);
+        json.append("   ]\n");
+        json.append("}");
         System.out.print(json);
         return json.toString();
     }

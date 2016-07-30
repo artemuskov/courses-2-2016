@@ -1,5 +1,6 @@
 package com.courses.spalah.service;
 
+import com.courses.spalah.model.Car;
 import com.courses.spalah.model.CarParking;
 
 /**
