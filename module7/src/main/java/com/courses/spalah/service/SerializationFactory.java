@@ -36,19 +36,13 @@ public class SerializationFactory {
      */
     public static CarParkingSerializer getSerializer(Format format) {
         // TODO - здесь будет ваша логика. Необходимо вернуть реализацию интерфейса
-<<<<<<< HEAD
 
-
-=======
         if (format == Format.JSON)
             return new CarParkingJSONSerializer();
         if (format == Format.XML)
             return new CarParkingXMLSerializer();
->>>>>>> d4303098ec9c1227efa572b9e1240a4a102b1c1f
+
         return  null;
     }
 
-    String serialize(CarParking carParking){
-        return "";
-    }
 }
