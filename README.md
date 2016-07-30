@@ -78,3 +78,16 @@
  * Наследование
 
 [ДЗ #6](https://github.com/rxn1d/courses-2-2016/blob/master/module6/module_6_home_work.md)
+
+7\. Полиморфизм
+ * Переопределение методов при наследовании
+ * Полиморфное поведение
+ * Абстрактный класс
+ * Интерфейс
+
+[ДЗ #7](https://github.com/rxn1d/courses-2-2016/blob/master/module7/module_7_home_work.md)
+
+8\. Практика ООП
+ * Реализация консольной рулетки
+
+[ДЗ #8](https://github.com/rxn1d/courses-2-2016/blob/master/module8/module_8_home_work.md)
