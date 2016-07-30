@@ -10,4 +10,10 @@ import com.courses.spalah.model.CarParking;
  */
 public interface CarParkingSerializer {
     String serialize(CarParking carParking);
+
+ //   public void printParkingName();
+
+//    public void printParkingAdress();
+
+ //   public void printCarsArray();
 }
