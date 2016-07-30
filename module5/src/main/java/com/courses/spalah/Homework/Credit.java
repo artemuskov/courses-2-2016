@@ -8,6 +8,12 @@ class Credit {
     private float persentPerYear;
     private int yearsOfCredit;
 
+    public Credit(float currentCredit, float persentPerYear, int yearsOfCredit) {
+        this.currentCredit = currentCredit;
+        this.persentPerYear = persentPerYear;
+        this.yearsOfCredit = yearsOfCredit;
+    }
+
     float getCreditAmount(float persentPerYear, int yearsOfCredit){
           return currentCredit + (currentCredit * persentPerYear / 100 * yearsOfCredit);
     }
