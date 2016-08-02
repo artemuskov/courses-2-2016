@@ -53,6 +53,8 @@ public class CarParkingJSONDesializer implements CarParkingDeserializer {
                 }
             }
         }
+       // System.out.println(cars.toString());
+
 
         carParking.setCars(cars);
 
