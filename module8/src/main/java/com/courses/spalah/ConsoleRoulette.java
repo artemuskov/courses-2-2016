@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 public class ConsoleRoulette {
     public static void main(String[] args) {
         Roulette roulette = new Roulette();
+        System.out.println("Game Started");
         roulette.generate();
         roulette.print();
 
