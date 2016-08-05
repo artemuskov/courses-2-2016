@@ -4,15 +4,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
+
 /**
  * Класс-стартер для вашей реализации рулетки
  */
 public class ConsoleRoulette {
     public static void main(String[] args) {
         Roulette roulette = new Roulette();
+        Table table = new Table();
+        table.tableFill();
         System.out.println("Game Started");
         roulette.generate();
         roulette.print();
+        System.out.println();
+        table.print();
+
 
         while(true) {
             String[] arguments = readFromConsole();

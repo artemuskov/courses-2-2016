@@ -1,6 +1,6 @@
 package com.courses.spalah;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  * Класс который представляет рулетку
@@ -12,10 +12,28 @@ public class Roulette {
         // заполняем массив ячейками
         for (int i = 0; i < cells.length; i++) {
             cells[i] = new Cell();
+            cells[i].setCellNumber(i);
+        }
+        List<Cell> tempList = new ArrayList<>();
+        for (Cell i : cells) {
+            tempList.add(i);
+        }
+        Collections.shuffle(tempList);
+        for (int i = 0; i < 37; i++) {
+            cells[i] = tempList.get(i);
+        }
+        for (int i = 0; i < 37; i++) {
+            if (cells[i].getCellNumber() != 0) {
+                cells[i].setIsRed(true);
+                i++;
+            }
         }
     }
 
+
     public void print() {
-        // печататем все ячейки в рулетке
+        for (int i = 0; i < 37; i++) {
+            cells[i].print();
+        }
     }
 }

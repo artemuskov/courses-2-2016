@@ -17,50 +17,16 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-<<<<<<< HEAD
       <profile default="false" name="Maven default annotation processors profile" enabled="true">
-=======
-      <profile default="false" name="Annotation profile for module5" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for module2" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for module7" enabled="true">
->>>>>>> 17a2a842683ccd53123e943c88ed93be13fd0d0a
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-<<<<<<< HEAD
         <module name="module2" />
         <module name="module5" />
-        <module name="module6" />
         <module name="module7" />
         <module name="module8" />
-=======
-        <module name="module7" />
-      </profile>
-      <profile default="false" name="Annotation profile for module8" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="module8" />
-      </profile>
-      <profile default="false" name="Annotation profile for module9" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="module9" />
->>>>>>> 17a2a842683ccd53123e943c88ed93be13fd0d0a
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
