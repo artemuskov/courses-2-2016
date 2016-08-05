@@ -6,6 +6,7 @@ package com.courses.spalah;
 public class ExitCommand extends Command{
     @Override
     public void execute() {
-        System.out.println("ВЫХОД");
+        System.out.println("Exit game...");
+        System.exit(0);
     }
 }
