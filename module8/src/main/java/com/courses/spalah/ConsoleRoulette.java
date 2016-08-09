@@ -19,14 +19,19 @@ public class ConsoleRoulette {
         roulette.print();
         System.out.println();
         table.print();
+        System.out.println();
 
 
         while(true) {
             String[] arguments = readFromConsole();
-            CommandParser commandParser = new CommandParser();
-            Command command = commandParser.getCommand(arguments);
-            command.setRoulette(roulette);
-            command.execute();
+            try {
+                CommandParser commandParser = new CommandParser();
+                Command command = commandParser.getCommand(arguments);
+                command.setRoulette(roulette);
+                command.execute();
+            } catch (Exception exception) {
+                System.out.println("start, new_user, bet, exit");
+            }
         }
     }
 

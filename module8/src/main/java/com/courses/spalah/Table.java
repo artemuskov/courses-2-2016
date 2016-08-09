@@ -7,10 +7,15 @@ public class Table {
     User[] users = new User[5];
     int userCount = 0;
 
+
     public void tableFill() {
         for (int i = 0; i < users.length; i++) {
             users[i] = new User();
         }
+    }
+
+    public void addUser () {
+        users[userCount].setName();
     }
 
     public int getUserCount() {

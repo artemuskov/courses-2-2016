@@ -5,9 +5,12 @@ package com.courses.spalah;
  */
 public class NewUserCommand extends Command {
 
+    Table table;
+
     @Override
     public void execute() {
-
+       // table.addUser();
+        //table.users[0].setName();
 
         System.out.println("Новый пользователь");
     }

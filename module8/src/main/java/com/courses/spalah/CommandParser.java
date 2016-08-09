@@ -5,7 +5,7 @@ package com.courses.spalah;
  */
 public class CommandParser {
     public Command getCommand(String[] arguments) {
-        Command command = new ExitCommand();
+        Command command = null;
         // создаем разные типы комманд в зависимости от аргументов
                 if (arguments[0].equalsIgnoreCase("exit")) {
                     command = new ExitCommand();
