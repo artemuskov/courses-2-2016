@@ -30,7 +30,7 @@ public class ConsoleRoulette {
                 command.setRoulette(roulette);
                 command.execute();
             } catch (Exception exception) {
-                System.out.println("start, new_user, bet, exit");
+                System.out.println("start, new_user, users, bet, exit");
             }
         }
     }

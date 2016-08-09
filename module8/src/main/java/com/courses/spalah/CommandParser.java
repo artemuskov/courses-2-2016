@@ -20,6 +20,9 @@ public class CommandParser {
                         arguments[0].equalsIgnoreCase("play") || arguments[0].equalsIgnoreCase("start")) {
                     command = new StartGameCommand();
                 }
+                if (arguments[0].equalsIgnoreCase("users")) {
+                    command = new UsersCommand();
+                }
                 command.setArguments(arguments);
 
         return command;

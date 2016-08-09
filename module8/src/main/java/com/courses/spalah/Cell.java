@@ -35,13 +35,13 @@ public class Cell {
     public void print(){
         System.out.print(cellNumber + "(");
         if (cellNumber == 0) {
-            System.out.print("Зеленое), ");
+            System.out.print("Green), ");
         }
         if (isRed == true) {
-            System.out.print("Красное), ");
+            System.out.print("Red), ");
         }
-        if (isRed == false) {
-            System.out.print("Черное), ");
+        if (isRed == false & cellNumber != 0) {
+            System.out.print("Black), ");
         }
     }
 }

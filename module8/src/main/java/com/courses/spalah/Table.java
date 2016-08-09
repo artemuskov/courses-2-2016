@@ -9,9 +9,9 @@ public class Table {
     private int userCount = 0;
 
     public void addUser (User user) {
-       if (userCount == MAXUSERS) {
-         return;
-       }
+        // if (userCount == MAXUSERS) {
+        //    return;
+        //   }
         users[userCount] = user;
         userCount++;
 
@@ -20,6 +20,8 @@ public class Table {
     public int getUserCount() {
         return userCount;
     }
+
+
 
     public void print() {
         for (int i = 0; i < userCount; i++) {

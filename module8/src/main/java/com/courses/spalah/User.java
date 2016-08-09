@@ -44,6 +44,6 @@ public class User {
     }
 
     public void print() {
-        System.out.print("User " + name + " with balance " + balance + ", ");
+        System.out.print(name + " with balance " + balance + ", ");
     }
 }
