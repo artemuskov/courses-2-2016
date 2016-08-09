@@ -4,23 +4,17 @@ package com.courses.spalah;
  * Created by Artem Uskov on 05.08.2016.
  */
 public class Table {
-    final static int maxUsers = 5;
-    private User[] users = new User[maxUsers];
+    private final static int MAXUSERS = 5;
+    private User[] users = new User[MAXUSERS];
     private int userCount = 0;
 
-
-    public void tableFill() {
-        for (int i = 0; i < users.length; i++) {
-            users[i] = new User();
-        }
-    }
-
     public void addUser (User user) {
-       if (userCount == maxUsers) {
-           return;
+       if (userCount == MAXUSERS) {
+         return;
        }
-       users[userCount] = user;
+        users[userCount] = user;
         userCount++;
+
     }
 
     public int getUserCount() {
@@ -28,7 +22,7 @@ public class Table {
     }
 
     public void print() {
-        for (int i = 0; i < maxUsers; i++) {
+        for (int i = 0; i < userCount; i++) {
             users[i].print();
         }
     }
