@@ -5,13 +5,18 @@ package com.courses.spalah;
  */
 public class NewUserCommand extends Command {
 
-    Table table;
-
     @Override
     public void execute() {
        // table.addUser();
         //table.users[0].setName();
+        String userName = arguments[1];
+        int balance = Integer.parseInt(arguments[2]);
+        User user = new User();
+        user.setName(userName);
+        user.setBalance(balance);
+        ConsoleRoulette.table.addUser(user);
+        ConsoleRoulette.table.print();
+        System.out.println("added to table");
 
-        System.out.println("Новый пользователь");
     }
 }

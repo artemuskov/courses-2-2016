@@ -34,11 +34,14 @@ public class Cell {
 
     public void print(){
         System.out.print(cellNumber + "(");
-        if (isRed == true) {
-            System.out.print("Red), ");
+        if (cellNumber == 0) {
+            System.out.print("Зеленое), ");
         }
-        else{
-            System.out.print("Black), ");
+        if (isRed == true) {
+            System.out.print("Красное), ");
+        }
+        if (isRed == false) {
+            System.out.print("Черное), ");
         }
     }
 }

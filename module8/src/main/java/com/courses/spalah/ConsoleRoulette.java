@@ -10,10 +10,10 @@ import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabe
  * Класс-стартер для вашей реализации рулетки
  */
 public class ConsoleRoulette {
+    static Table table = new Table();
+    static Roulette roulette = new Roulette();
+
     public static void main(String[] args) {
-        Roulette roulette = new Roulette();
-        Table table = new Table();
-        table.tableFill();
         System.out.println("Game Started");
         roulette.generate();
         roulette.print();
