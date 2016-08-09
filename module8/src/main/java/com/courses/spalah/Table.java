@@ -4,8 +4,9 @@ package com.courses.spalah;
  * Created by Artem Uskov on 05.08.2016.
  */
 public class Table {
-    User[] users = new User[5];
-    int userCount = 0;
+    final static int maxUsers = 5;
+    private User[] users = new User[maxUsers];
+    private int userCount = 0;
 
 
     public void tableFill() {
@@ -15,22 +16,19 @@ public class Table {
     }
 
     public void addUser (User user) {
-       if (userCount == 5) {
+       if (userCount == maxUsers) {
            return;
        }
        users[userCount] = user;
+        userCount++;
     }
 
     public int getUserCount() {
         return userCount;
     }
 
-    public void setUserCount() {
-        this.userCount = userCount;
-    }
-
     public void print() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < maxUsers; i++) {
             users[i].print();
         }
     }
