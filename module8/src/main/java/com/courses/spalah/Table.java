@@ -14,8 +14,11 @@ public class Table {
         }
     }
 
-    public void addUser () {
-        users[userCount].setName();
+    public void addUser (User user) {
+       if (userCount == 5) {
+           return;
+       }
+       users[userCount] = user;
     }
 
     public int getUserCount() {
