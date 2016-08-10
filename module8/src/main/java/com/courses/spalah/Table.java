@@ -14,13 +14,17 @@ public class Table {
         //   }
         users[userCount] = user;
         userCount++;
-
     }
+
+
 
     public int getUserCount() {
         return userCount;
     }
 
+    public void setUsers(User[] users) {
+        this.users = users;
+    }
 
 
     public void print() {

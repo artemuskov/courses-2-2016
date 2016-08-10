@@ -7,11 +7,9 @@ public class NewUserCommand extends Command {
 
     @Override
     public void execute() {
-        String userName = arguments[1];
-        int balance = Integer.parseInt(arguments[2]);
         User user = new User();
-        user.setName(userName);
-        user.setBalance(balance);
+        user.setName(arguments[1]);
+        user.setBalance(Integer.parseInt(arguments[2]));
         try {
             ConsoleRoulette.table.addUser(user);
             user.print();

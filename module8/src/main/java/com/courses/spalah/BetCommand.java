@@ -12,6 +12,5 @@ public class BetCommand extends Command {
         System.out.println("СТАВКА");
         System.out.println(userName);
         System.out.println(bet);
-
     }
 }

@@ -6,7 +6,7 @@ package com.courses.spalah;
 public abstract class Command {
     protected String[] arguments;
     Roulette roulette;
-    //Table table;
+    Table table;
 
     public void setArguments(String[] arguments) {
         this.arguments = arguments;
@@ -16,9 +16,21 @@ public abstract class Command {
         this.roulette = roulette;
     }
 
-//    public void setTable(Table table) {
-//        this.table = table;
-//    }
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    public String[] getArguments () {
+        return arguments;
+    }
+
+    public Roulette getRoulette() {
+        return roulette;
+    }
+
+    public Table getTable() {
+        return table;
+    }
 
     public abstract void execute();
 }
