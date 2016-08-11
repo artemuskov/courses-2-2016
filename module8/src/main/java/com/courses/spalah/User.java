@@ -11,6 +11,7 @@ public class User {
     private int currentBet = 0;
     private boolean isBet = false;
     private String betType = "";
+    private int betNumber;
 
     public void setName(String name){
         this.name = name;
@@ -30,6 +31,10 @@ public class User {
 
     public void setBetType(String betType){
         this.betType = betType;
+    }
+
+    public void setBetNumber(int betNumber) {
+        this.betNumber = betNumber;
     }
 
 
@@ -53,7 +58,18 @@ public class User {
         return betType;
     }
 
+    public int getBetNumber() {
+        return betNumber;
+    }
+
     public void print() {
-        System.out.println(name + " with balance " + balance + ", current bet = " + currentBet + ", isBet = " + isBet + ", " + "betType = " + betType + ";");
+        System.out.print(name + " with balance " + balance + ", isBet = " + isBet);
+        if(isBet) {
+            System.out.print(", current bet = " + currentBet + ", bet type - " + betType);
+        }
+        if(betType.equalsIgnoreCase("STRAIGHT_UP")) {
+            System.out.print(", bet number = " + betNumber);
+        }
+        System.out.println(";");
     }
 }

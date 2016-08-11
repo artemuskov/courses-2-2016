@@ -1,5 +1,7 @@
 package com.courses.spalah;
 
+import java.nio.file.FileSystemNotFoundException;
+
 /**
  * Created by Artem Uskov on 05.08.2016.
  */
@@ -26,13 +28,47 @@ public class Table {
     }
 
     public void setBet(String userName, int currentBet, String betType){
-        for (int i = 0; i < userCount; i++) {
-            String name = users[i].getName();
-            if (name.equalsIgnoreCase(userName)) {
-                users[i].setCurrentBet(currentBet);
-                users[i].setIsBet(true);
-                users[i].setBalance(users[i].getBalance() - currentBet);
-                users[i].setBetType(betType);
+        if(currentBet < 1 || currentBet > 500) {
+            System.out.println("Bet must be bigger 1 and lower 500");
+        }
+        else {
+            for (int i = 0; i < userCount; i++) {
+                String name = users[i].getName();
+                if (name.equalsIgnoreCase(userName)) {
+                    if((users[i].getBalance() < currentBet) || (users[i].getIsBet())) {
+                        System.out.println("Bet not accepted");
+                    }
+                    else{
+                        users[i].setCurrentBet(currentBet);
+                        users[i].setIsBet(true);
+                        users[i].setBalance(users[i].getBalance() - currentBet);
+                        users[i].setBetType(betType);
+                        System.out.println("Bet accepted");
+                    }
+                }
+            }
+        }
+    }
+
+    public void setBet(String userName, int currentBet, String betType, int betNumber){
+        if(currentBet < 1 || currentBet > 500) {
+            System.out.println("Bet must be bigger 1 and lower 500");
+        }
+        else {
+            for (int i = 0; i < userCount; i++) {
+                String name = users[i].getName();
+                if (name.equalsIgnoreCase(userName)) {
+                    if((users[i].getBalance() < currentBet) || (users[i].getIsBet()) || (betNumber < 0) || (betNumber > 36)) {
+                        System.out.println("Bet not accepted");
+                    }
+                    else{
+                        users[i].setCurrentBet(currentBet);
+                        users[i].setIsBet(true);
+                        users[i].setBalance(users[i].getBalance() - currentBet);
+                        users[i].setBetType(betType);
+                        System.out.println("Bet accepted");
+                    }
+                }
             }
         }
     }

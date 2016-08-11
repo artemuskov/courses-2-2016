@@ -24,14 +24,14 @@ public class ConsoleRoulette {
 
         while(true) {
             String[] arguments = readFromConsole();
-      //      try {
+            try {
                 CommandParser commandParser = new CommandParser();
                 Command command = commandParser.getCommand(arguments);
                 command.setRoulette(roulette);
                 command.execute();
-     //       } catch (Exception exception) {
-     //           System.out.println("start, new_user, users, bet, exit");
-      //      }
+            } catch (Exception exception) {
+                System.out.println("start, new_user, users, bet, exit");
+           }
         }
     }
 
