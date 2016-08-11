@@ -10,6 +10,7 @@ public class User {
     private int balance = 0;
     private int currentBet = 0;
     private boolean isBet = false;
+    private String betType = "";
 
     public void setName(String name){
         this.name = name;
@@ -27,6 +28,11 @@ public class User {
         this.isBet = isBet;
     }
 
+    public void setBetType(String betType){
+        this.betType = betType;
+    }
+
+
     public String getName() {
         return name;
     }
@@ -43,7 +49,11 @@ public class User {
         return isBet;
     }
 
+    public String getBetType() {
+        return betType;
+    }
+
     public void print() {
-        System.out.print(name + " with balance " + balance + ", ");
+        System.out.println(name + " with balance " + balance + ", current bet = " + currentBet + ", isBet = " + isBet + ", " + "betType = " + betType + ";");
     }
 }

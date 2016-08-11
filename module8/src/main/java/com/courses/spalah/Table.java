@@ -7,6 +7,7 @@ public class Table {
     private final static int MAXUSERS = 5;
     private User[] users = new User[MAXUSERS];
     private int userCount = 0;
+    private int casinoBalance = 0;
 
     public void addUser (User user) {
         // if (userCount == MAXUSERS) {
@@ -14,6 +15,26 @@ public class Table {
         //   }
         users[userCount] = user;
         userCount++;
+    }
+
+    public void setCasinoBalance(int casinoBalance) {
+        this.casinoBalance = casinoBalance;
+    }
+
+    public int getCasinoBalance() {
+        return casinoBalance;
+    }
+
+    public void setBet(String userName, int currentBet, String betType){
+        for (int i = 0; i < userCount; i++) {
+            String name = users[i].getName();
+            if (name.equalsIgnoreCase(userName)) {
+                users[i].setCurrentBet(currentBet);
+                users[i].setIsBet(true);
+                users[i].setBalance(users[i].getBalance() - currentBet);
+                users[i].setBetType(betType);
+            }
+        }
     }
 
 
