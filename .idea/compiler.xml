@@ -28,8 +28,20 @@
         <module name="module8" />
         <module name="module9" />
       </profile>
+      <profile default="false" name="Annotation profile for module10" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="module10" />
+      </profile>
     </annotationProcessing>
+<<<<<<< HEAD
     <bytecodeTargetLevel>
+=======
+    <bytecodeTargetLevel target="1.8">
+      <module name="module10" target="1.8" />
+>>>>>>> 62544a1c90cef3b4fd992e8b143d099aa23b16f5
       <module name="module2" target="1.8" />
       <module name="module3" target="1.8" />
       <module name="module4" target="1.8" />
