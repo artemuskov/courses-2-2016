@@ -79,6 +79,10 @@ public class Table {
         return userCount;
     }
 
+    public User getUser(int count) {
+        return users[count];
+    }
+
     public void setUsers(User[] users) {
         this.users = users;
     }

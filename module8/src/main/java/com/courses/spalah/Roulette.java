@@ -30,6 +30,13 @@ public class Roulette {
         }
     }
 
+    public Cell spinRoulette() {
+        Cell cell = new Cell();
+        Random randomCell = new Random();
+        int random = randomCell.nextInt(cells.length);
+        return cells[random];
+    }
+
 
     public void print() {
         for (int i = 0; i < 37; i++) {

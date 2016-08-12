@@ -9,5 +9,6 @@ public class UsersCommand extends Command {
     public void execute() {
         ConsoleRoulette.table.print();
         System.out.println();
+        System.out.println("Casino balance: " + ConsoleRoulette.table.getCasinoBalance());
     }
 }

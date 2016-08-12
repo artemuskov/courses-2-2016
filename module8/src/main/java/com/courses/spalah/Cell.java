@@ -8,16 +8,9 @@ import java.util.Random;
 public class Cell {
     private int cellNumber = 0;
     private boolean isRed = false;
-    Random random = new Random();
 
-    /*   public void generateCell () {
-           this.cellNumber = random.nextInt(37);
-           this.isRed = random.nextBoolean();
-       }
-*/
-    public int setCellNumber(int cellNumber){
+    public void setCellNumber(int cellNumber){
           this.cellNumber = cellNumber;
-           return cellNumber;
     }
 
     public void setIsRed(boolean isRed){

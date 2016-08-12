@@ -17,7 +17,7 @@ public class CommandParser {
                     command = new BetCommand();
                 }
                 if (arguments[0].equalsIgnoreCase("play_game") || arguments[0].equalsIgnoreCase("start_game") ||
-                        arguments[0].equalsIgnoreCase("play") || arguments[0].equalsIgnoreCase("start")) {
+                        arguments[0].equalsIgnoreCase("play") || arguments[0].equalsIgnoreCase("start") || arguments[0].equalsIgnoreCase("s")){
                     command = new StartGameCommand();
                 }
                 if (arguments[0].equalsIgnoreCase("users")) {
