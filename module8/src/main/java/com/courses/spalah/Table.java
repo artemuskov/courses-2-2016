@@ -48,8 +48,8 @@ public class Table {
     }
 
     public void addBet(String userName, int currentBet, String betType, int betNumber){
-        if(currentBet < 1 || currentBet > 500) {
-            System.out.println("Bet must be bigger 1 and lower 500");
+        if(currentBet < 1 || currentBet > 500 || (betNumber < 0) || (betNumber > 36)) {
+            System.out.println("Bet not accepted");
         }
         else {
             for (int i = 0; i < userCount; i++) {
@@ -63,6 +63,7 @@ public class Table {
                         users[i].setIsBet(true);
                         users[i].setBalance(users[i].getBalance() - currentBet);
                         users[i].setBetType(betType);
+                        users[i].setBetNumber(betNumber);
                         System.out.println("Bet accepted");
                     }
                 }
