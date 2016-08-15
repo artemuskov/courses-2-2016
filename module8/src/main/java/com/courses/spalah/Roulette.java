@@ -22,11 +22,9 @@ public class Roulette {
         for (int i = 0; i < 37; i++) {
             cells[i] = tempList.get(i);
         }
-        for (int i = 0; i < 37; i++) {
-            if (cells[i].getCellNumber() != 0) {
-                cells[i].setIsRed(true);
-                i++;
-            }
+        for (int i = 1; i < 37; i++) {
+            cells[i].setIsRed(true);
+            i++;
         }
     }
 

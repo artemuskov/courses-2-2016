@@ -12,9 +12,6 @@ public class Table {
     private int casinoBalance = 0;
 
     public void addUser (User user) {
-        // if (userCount == MAXUSERS) {
-        //    return;
-        //   }
         users[userCount] = user;
         userCount++;
     }
@@ -27,7 +24,7 @@ public class Table {
         return casinoBalance;
     }
 
-    public void setBet(String userName, int currentBet, String betType){
+    public void addBet(String userName, int currentBet, String betType){
         if(currentBet < 1 || currentBet > 500) {
             System.out.println("Bet must be bigger 1 and lower 500");
         }
@@ -50,7 +47,7 @@ public class Table {
         }
     }
 
-    public void setBet(String userName, int currentBet, String betType, int betNumber){
+    public void addBet(String userName, int currentBet, String betType, int betNumber){
         if(currentBet < 1 || currentBet > 500) {
             System.out.println("Bet must be bigger 1 and lower 500");
         }
@@ -72,7 +69,6 @@ public class Table {
             }
         }
     }
-
 
 
     public int getUserCount() {
