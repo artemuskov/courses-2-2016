@@ -12,6 +12,7 @@ import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabe
 public class ConsoleRoulette {
     static Table table = new Table();
     static Roulette roulette = new Roulette();
+    private static boolean isExit = false;
 
     public static void main(String[] args) {
         System.out.println("Game Started");
@@ -22,7 +23,7 @@ public class ConsoleRoulette {
         System.out.println();
 
 
-        while(true) {
+        while(!isExit) {
             String[] arguments = readFromConsole();
             try {
                 CommandParser commandParser = new CommandParser();
@@ -43,5 +44,9 @@ public class ConsoleRoulette {
         } catch (IOException e) {
             return new String[]{""};
         }
+    }
+
+    public static void setIsExit() {
+        isExit = true;
     }
 }
