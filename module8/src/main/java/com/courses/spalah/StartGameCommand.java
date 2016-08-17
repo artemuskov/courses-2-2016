@@ -5,6 +5,9 @@ package com.courses.spalah;
  */
 
 public class StartGameCommand extends Command {
+    private User user;
+    private boolean userWin;
+    private int casinoProfit;
     @Override
     public void execute() {
         System.out.println("КРУТИМ РУЛЕТКУ");
@@ -13,65 +16,62 @@ public class StartGameCommand extends Command {
         cell = roulette.spinRoulette();
         boolean isRed = cell.getIsRed();
         int winNumber = cell.getCellNumber();
-        int casinoProfit = 0;
+        casinoProfit = 0;
         System.out.print("Winning number = ");
         cell.print();
         System.out.println();
         for (int i = 0; i < table.getUserCount(); i++) {
-            User user = table.getUser(i);
-            boolean userWin = false;
+            user = table.getUser(i);
+            userWin = false;
             if(user.getIsBet()) {
                 if(user.getBetType().equalsIgnoreCase("RED") & isRed) {
-                    user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                    playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("BLACK") & !isRed & winNumber != 0) {
-                    user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                    playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("EVEN") & (winNumber % 2) == 0 & winNumber != 0) {
-                    user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                   playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("ODD") & (winNumber % 2) == 1) {
-                    user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                   playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("SMALL") & winNumber > 0 & winNumber < 19) {
-                    user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                   playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("BIG") & winNumber > 18 & winNumber < 37) {
-                    user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                   playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("STRAIGHT_UP") & winNumber == user.getBetNumber()) {
-                    user.setBalance(user.getBalance() + 35 * user.getCurrentBet());
-                    System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-                    userWin = true;
-                    user.setIsBet(false);
+                  playerWinStraight();
                 }
                 if (!userWin) {
-                    user.setIsBet(false);
-                    table.setCasinoBalance(table.getCasinoBalance() + user.getCurrentBet());
-                    System.out.println("Player lose: " + user.getName() + " -" + user.getCurrentBet() + "$, " + "balance: " + user.getBalance() + "$");
-                    casinoProfit = casinoProfit + user.getCurrentBet();
+                  playerLose();
                 }
             }
         }
         System.out.println("Casino: +" + casinoProfit + ", balance: " + table.getCasinoBalance());
         ConsoleRoulette.table = table;
+    }
+
+    public void playerWin() {
+        user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
+        System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
+        userWin = true;
+        user.setIsBet(false);
+    }
+
+    public void playerWinStraight() {
+        user.setBalance(user.getBalance() + 35 * user.getCurrentBet());
+        System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
+        userWin = true;
+        user.setIsBet(false);
+    }
+
+    public void playerLose() {
+        user.setIsBet(false);
+        table.setCasinoBalance(table.getCasinoBalance() + user.getCurrentBet());
+        System.out.println("Player lose: " + user.getName() + " -" + user.getCurrentBet() + "$, " + "balance: " + user.getBalance() + "$");
+        casinoProfit = casinoProfit + user.getCurrentBet();
     }
 }
