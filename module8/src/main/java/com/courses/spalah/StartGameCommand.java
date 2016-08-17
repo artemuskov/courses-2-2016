@@ -8,10 +8,11 @@ public class StartGameCommand extends Command {
     private User user;
     private boolean userWin;
     private int casinoProfit;
+    Table table;
     @Override
     public void execute() {
         System.out.println("КРУТИМ РУЛЕТКУ");
-        Table table = ConsoleRoulette.table;
+        table = ConsoleRoulette.table;
         Cell cell = new Cell();
         cell = roulette.spinRoulette();
         boolean isRed = cell.getIsRed();
@@ -43,7 +44,7 @@ public class StartGameCommand extends Command {
                    playerWin();
                 }
                 if(user.getBetType().equalsIgnoreCase("STRAIGHT_UP") & winNumber == user.getBetNumber()) {
-                  playerWinStraight();
+                  playerWin();
                 }
                 if (!userWin) {
                   playerLose();
@@ -55,14 +56,12 @@ public class StartGameCommand extends Command {
     }
 
     public void playerWin() {
-        user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
-        System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
-        userWin = true;
-        user.setIsBet(false);
-    }
-
-    public void playerWinStraight() {
-        user.setBalance(user.getBalance() + 35 * user.getCurrentBet());
+        if(user.getBetType().equalsIgnoreCase("STRAIGHT_UP")){
+            user.setBalance(user.getBalance() + 35 * user.getCurrentBet());
+        }
+        else {
+            user.setBalance(user.getBalance() + 2 * user.getCurrentBet());
+        }
         System.out.println("Player win: " + user.getName() + " +" + user.getCurrentBet() + "$ " + "balance: " + user.getBalance() + "$");
         userWin = true;
         user.setIsBet(false);

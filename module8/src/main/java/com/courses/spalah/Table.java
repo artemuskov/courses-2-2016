@@ -10,6 +10,10 @@ public class Table {
     private User[] users = new User[MAXUSERS];
     private int userCount = 0;
     private int casinoBalance = 0;
+    private String userName;
+    private int currentBet;
+    private String betType;
+    private int betNumber;
 
     public void addUser (User user) {
         users[userCount] = user;
@@ -24,9 +28,9 @@ public class Table {
         return casinoBalance;
     }
 
-    public void addBet(String userName, int currentBet, String betType){
-        if(currentBet < 1 || currentBet > 500) {
-            System.out.println("Bet must be bigger 1 and lower 500");
+    public void addBet(String userName, int currentBet, String betType, int betNumber){
+        if(currentBet < 1 || currentBet > 500 || (betNumber < 0) || (betNumber > 36)) {
+            System.out.println("Bet not accepted");
         }
         else {
             for (int i = 0; i < userCount; i++) {
@@ -40,30 +44,9 @@ public class Table {
                         users[i].setIsBet(true);
                         users[i].setBalance(users[i].getBalance() - currentBet);
                         users[i].setBetType(betType);
-                        System.out.println("Bet accepted");
-                    }
-                }
-            }
-        }
-    }
-
-    public void addBet(String userName, int currentBet, String betType, int betNumber){
-        if(currentBet < 1 || currentBet > 500 || (betNumber < 0) || (betNumber > 36)) {
-            System.out.println("Bet not accepted");
-        }
-        else {
-            for (int i = 0; i < userCount; i++) {
-                String name = users[i].getName();
-                if (name.equalsIgnoreCase(userName)) {
-                    if((users[i].getBalance() < currentBet) || (users[i].getIsBet()) || (betNumber < 0) || (betNumber > 36)) {
-                        System.out.println("Bet not accepted");
-                    }
-                    else{
-                        users[i].setCurrentBet(currentBet);
-                        users[i].setIsBet(true);
-                        users[i].setBalance(users[i].getBalance() - currentBet);
-                        users[i].setBetType(betType);
-                        users[i].setBetNumber(betNumber);
+                        if (users[i].getBetType().equalsIgnoreCase("STRAIGHT_UP")) {
+                            users[i].setBetNumber(betNumber);
+                        }
                         System.out.println("Bet accepted");
                     }
                 }
@@ -82,6 +65,10 @@ public class Table {
 
     public void setUsers(User[] users) {
         this.users = users;
+    }
+
+    public void setBet(String userName, int currentBet, String betType, int betNumber) {
+
     }
 
 

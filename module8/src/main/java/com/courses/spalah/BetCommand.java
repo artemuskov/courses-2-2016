@@ -12,16 +12,14 @@ public class BetCommand extends Command {
             String userName = arguments[1];
             int bet = Integer.parseInt(arguments[2]);
             String betType = arguments[3];
-            if (arguments.length == 4) {
-              ConsoleRoulette.table.addBet(userName, bet, betType);
-            }
+            int betNumber = 0;
             if(arguments.length == 5) {
-                int betNumber = Integer.parseInt(arguments[4]);
-                ConsoleRoulette.table.addBet(userName, bet, betType, betNumber);
+                betNumber = Integer.parseInt(arguments[4]);
             }
-        } catch (Exception ex) {
-            System.out.println("bet command must be:");
-            System.out.println("bet [user] [betsum] [bettype] [betnumber]");
-        }
+                ConsoleRoulette.table.addBet(userName, bet, betType, betNumber);
+            } catch (Exception ex) {
+                System.out.println("bet command must be:");
+                System.out.println("bet [user] [betsum] [bettype] [betnumber]");
+            }
     }
 }
