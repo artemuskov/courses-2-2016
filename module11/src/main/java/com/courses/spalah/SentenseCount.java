@@ -3,29 +3,27 @@ package com.courses.spalah;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * Created by Artem Uskov on 18.08.2016.
+ * Created by Artem Uskov on 19.08.2016.
  */
-public class TokensCount {
+public class SentenseCount {
 
-    public static void calculateTokens(String input, String output) throws IOException{
+    public static void calculateSentense(String input, String output)throws IOException{
         FileReader reader = new FileReader(input);
         FileWriter writer = new FileWriter(output, true);
         Scanner sc = new Scanner(reader);
-        int tokensCount = 0;
+        int sentensesCount = 0;
         while(sc.hasNextLine()) {
             String line = sc.nextLine();
             for(int i = 0; i < line.length(); i++) {
-                if(line.charAt(i) != ' ') {
-                    tokensCount++;
+                if(line.charAt(i) == '.') {
+                    sentensesCount++;
                 }
             }
         }
-        writer.append("Tokens quantity - " + Integer.toString(tokensCount));
+        writer.append("Sentenses quantity - " + Integer.toString(sentensesCount));
         writer.append("\n");
         writer.flush();
     }

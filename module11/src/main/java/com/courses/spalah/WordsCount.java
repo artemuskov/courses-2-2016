@@ -10,26 +10,18 @@ import java.util.Scanner;
  * Created by Artem Uskov on 18.08.2016.
  */
 public class WordsCount {
-    //private static String input = TextAnalyzer.getInputFile();
 
-
-
-    public static void calculate() throws IOException {
-        FileReader reader = new FileReader("C:\\spalah\\courses-2-2016\\module11\\src\\main\\resources\\text_sample.txt");
-        FileWriter writer = new FileWriter("C:\\spalah\\courses-2-2016\\module11\\src\\main\\resources\\statistics.txt", true);
+    public static void calculateWords(String input, String output) throws IOException {
+        FileReader reader = new FileReader(input);
+        FileWriter writer = new FileWriter(output, true);
         Scanner sc = new Scanner(reader);
         int wordCount = 0;
         while(sc.hasNext()) {
             sc.next();
             wordCount++;
         }
-        String out = Integer.toString(wordCount);
-
-        System.out.println(wordCount);
+        writer.write("Words quantity - " + Integer.toString(wordCount));
         writer.append("\n");
-        writer.write(out);
         writer.flush();
-        writer.close();
-
     };
 }
