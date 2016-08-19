@@ -23,7 +23,7 @@ public class SentenseCount {
                 }
             }
         }
-        writer.append("Sentenses quantity - " + Integer.toString(sentensesCount));
+        writer.append("Sentences quantity - " + Integer.toString(sentensesCount));
         writer.append("\n");
         writer.flush();
     }

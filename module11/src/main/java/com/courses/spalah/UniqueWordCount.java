@@ -25,6 +25,7 @@ public class UniqueWordCount {
             if(list.get(i).endsWith(",") | list.get(i).endsWith(".")) {
                 list.set(i, list.get(i).substring(0, list.get(i).length() - 1));
             }
+            list.set(i, list.get(i).toLowerCase());
         }
 
         for(String word : list) {

@@ -25,6 +25,7 @@ public class MostFrequencyWord {
             if(list.get(i).endsWith(",") | list.get(i).endsWith(".")) {
                 list.set(i, list.get(i).substring(0, list.get(i).length() - 1));
             }
+            list.set(i, list.get(i).toLowerCase());
         }
 
         int maxWordFrequency = Collections.frequency(list, list.get(0).toLowerCase());;
@@ -32,9 +33,9 @@ public class MostFrequencyWord {
             if(maxWordFrequency < Collections.frequency(list, word.toLowerCase())) {
                 maxWordFrequency = Collections.frequency(list, word.toLowerCase());
                 frequencyWord = word;
-                System.out.println(word + " - " + maxWordFrequency);
             }
         }
+
         writer.append("Most frequency word - " + frequencyWord);
         writer.append("\n");
         writer.flush();

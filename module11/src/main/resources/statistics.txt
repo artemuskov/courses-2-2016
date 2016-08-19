@@ -1,7 +1,7 @@
 Words quantity - 1899
 Tokens quantity - 10922
-Sentenses quantity - 232
+Sentences quantity - 232
 Max lenght of word - 12
 Min lenght of word - 1
-Number of unique words - 11
-Most frequency word - vel
+Number of unique words - 12
+Most frequency word - in
