@@ -6,15 +6,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by Artem Uskov on 19.08.2016.
  */
-public class MinWordLenght {
+public class UniqueWordCount {
 
-    public static void calculateMinWordlenght(String input, String output) throws IOException {
+    public static void calculateUniqueWord(String input, String output) throws IOException {
         FileWriter writer = new FileWriter(output, true);
-        int wordLenght = 0;
+        int uniqueCount = 0;
         String str = String.join("\n", Files.readAllLines(Paths.get(input)));
         ArrayList<String> list = new ArrayList<String>(Arrays.asList(str.split("\\s")));
         for(int i = 0; i < list.size(); i++) {
@@ -25,15 +26,16 @@ public class MinWordLenght {
                 list.set(i, list.get(i).substring(0, list.get(i).length() - 1));
             }
         }
-        wordLenght = list.get(0).length();
+
         for(String word : list) {
-            if(word.length() < wordLenght) {
-                wordLenght = word.length();
+            if(Collections.frequency(list, word.toLowerCase()) == 1) {
+                uniqueCount++;
             }
         }
-
-        writer.append("Min lenght of word - " + Integer.toString(wordLenght));
+        writer.append("Number of unique words - " + Integer.toString(uniqueCount));
         writer.append("\n");
         writer.flush();
+        }
+
     }
-}
+

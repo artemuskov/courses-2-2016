@@ -20,8 +20,9 @@ public class TextAnalyzer {
         WordsCount.calculateWords(INPUT_FILE, OUTPUT_FILE);
         TokensCount.calculateTokens(INPUT_FILE, OUTPUT_FILE);
         SentenseCount.calculateSentense(INPUT_FILE, OUTPUT_FILE);
-        MaxWordLenght.calculeteMaxWordlenght(INPUT_FILE, OUTPUT_FILE);
-        MinWordLenght.calculeteMinWordlenght(INPUT_FILE, OUTPUT_FILE);
+        MaxWordLenght.calculateMaxWordlenght(INPUT_FILE, OUTPUT_FILE);
+        MinWordLenght.calculateMinWordlenght(INPUT_FILE, OUTPUT_FILE);
+        UniqueWordCount.calculateUniqueWord(INPUT_FILE, OUTPUT_FILE);
 
 
 

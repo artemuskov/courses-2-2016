@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  */
 public class MaxWordLenght {
 
-    public static void calculeteMaxWordlenght(String input, String output) throws IOException {
+    public static void calculateMaxWordlenght(String input, String output) throws IOException {
         FileWriter writer = new FileWriter(output, true);
         int wordLenght = 0;
         String str = String.join("\n", Files.readAllLines(Paths.get(input)));
