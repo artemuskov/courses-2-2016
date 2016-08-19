@@ -23,6 +23,7 @@ public class TextAnalyzer {
         MaxWordLenght.calculateMaxWordlenght(INPUT_FILE, OUTPUT_FILE);
         MinWordLenght.calculateMinWordlenght(INPUT_FILE, OUTPUT_FILE);
         UniqueWordCount.calculateUniqueWord(INPUT_FILE, OUTPUT_FILE);
+        MostFrequencyWord.searchMostFrequencyWord(INPUT_FILE, OUTPUT_FILE);
 
 
 
