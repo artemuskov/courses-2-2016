@@ -4,4 +4,5 @@ Sentences quantity - 232
 Max lenght of word - 12
 Min lenght of word - 1
 Number of unique words - 12
+Number of unique words(2) - 12
 Most frequency word - in

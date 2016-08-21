@@ -14,7 +14,6 @@ public class TextAnalyzer {
 
     public static void main(String[] args) throws IOException {
 
-        //FileReader fr = new FileReader("C:\\spalah\\courses-2-2016\\module11\\src\\main\\resources\\text_sample.txt");
         FileWriter writer = new FileWriter(OUTPUT_FILE, false);
         writer.flush();
         WordsCount.calculateWords(INPUT_FILE, OUTPUT_FILE);
@@ -23,9 +22,10 @@ public class TextAnalyzer {
         MaxWordLenght.calculateMaxWordlenght(INPUT_FILE, OUTPUT_FILE);
         MinWordLenght.calculateMinWordlenght(INPUT_FILE, OUTPUT_FILE);
         UniqueWordCount.calculateUniqueWord(INPUT_FILE, OUTPUT_FILE);
+        UniqueWordCount2.calculateUniqueWord2(INPUT_FILE, OUTPUT_FILE);
         MostFrequencyWord.searchMostFrequencyWord(INPUT_FILE, OUTPUT_FILE);
 
-
+        System.out.println("Statistics complete");
 
 
 
