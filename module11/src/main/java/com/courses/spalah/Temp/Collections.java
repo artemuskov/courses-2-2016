@@ -19,7 +19,8 @@ public class Collections {
         ArrayList<Cat> arrayCats = new ArrayList<>();
         ArrayList<Dog> arrayDogs = new ArrayList<>();
         LinkedList<Cat> linkedCats = new LinkedList<>();
-        HashSet<Cat> hashCats = new HashSet<>();
+        HashSet<Cat> setCats = new HashSet<>();
+        HashMap<Color, Cat> mapCats = new HashMap<>();
 
 
         arrayCats.add(barsik);
@@ -44,21 +45,43 @@ public class Collections {
         //System.out.println(newCat.toString());
         linkedCats.push(murzik);
 
-        hashCats.add(barsik);
-        System.out.println(hashCats.add(murzik));
+        setCats.add(barsik);
+        setCats.add(murzik);
+        setCats.add(cezar);
+      //  System.out.println(hashCats.add(murzik));
 
-        Iterator<Cat> itr = hashCats.iterator();
-        while(itr.hasNext()) {
-            Cat hashCat = itr.next();
-            System.out.println(hashCat);
-        }
+//        Iterator<Cat> itr = hashCats.iterator();
+//        while(itr.hasNext()) {
+//            Cat hashCat = itr.next();
+//            System.out.println(hashCat);
+//        }
+//
+//        System.out.println("Размер котов - " + hashCats.size());
+//        for(Cat cat : hashCats) {
+//            System.out.println(cat.toString());
+//        }
+
+        mapCats.put(Color.WHITE, murzik);
+        mapCats.put(Color.BLACK, barsik);
+        mapCats.put(Color.BROWN, cezar);
 
 
+        //mapCats.put(Color.BLACK, murzik);
+        //mapCats.put(Color.BLACK, barsik);
+        final Color[] colors = Color.values();
+        final Cat[] catsArray = new Cat[3];
+        catsArray[0] = barsik;
+        catsArray[1] = murzik;
+        catsArray[2] = cezar;
 
-        System.out.println("Размер котов - " + hashCats.size());
-        for(Cat cat : hashCats) {
-            System.out.println(cat.toString());
-        }
+//        for(int i = 0; i < 10; i++) {
+//            Random rnd = new Random();
+//            Cat tempCat = catsArray[rnd.nextInt(catsArray.length)];
+//            mapCats.put(colors[rnd.nextInt(colors.length)], tempCat);
+//        }
+
+
+        System.out.println(mapCats.toString());
 
 
     }
