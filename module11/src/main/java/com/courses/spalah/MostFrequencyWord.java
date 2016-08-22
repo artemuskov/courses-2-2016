@@ -16,17 +16,7 @@ public class MostFrequencyWord {
     public static void searchMostFrequencyWord(String input, String output) throws IOException {
         FileWriter writer = new FileWriter(output, true);
         String frequencyWord = "";
-        String str = String.join("\n", Files.readAllLines(Paths.get(input)));
-        ArrayList<String> list = new ArrayList<String>(Arrays.asList(str.split("\\s")));
-        for(int i = 0; i < list.size(); i++) {
-            if(list.get(i).equals("")) {
-                list.remove(i);
-            }
-            if(list.get(i).endsWith(",") | list.get(i).endsWith(".")) {
-                list.set(i, list.get(i).substring(0, list.get(i).length() - 1));
-            }
-            list.set(i, list.get(i).toLowerCase());
-        }
+        ArrayList<String> list = CreateArrayList.createArrayList(input);
 
         int maxWordFrequency = Collections.frequency(list, list.get(0).toLowerCase());;
         for(String word : list) {

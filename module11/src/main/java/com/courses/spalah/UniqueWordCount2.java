@@ -16,19 +16,9 @@ public class UniqueWordCount2 {
 
     public static void calculateUniqueWord2(String input, String output) throws IOException {
         FileWriter writer = new FileWriter(output, true);
-        String str = String.join("\n", Files.readAllLines(Paths.get(input)));
-        ArrayList<String> list = new ArrayList<String>(Arrays.asList(str.split("\\s")));
+        ArrayList<String> list = CreateArrayList.createArrayList(input);
         HashSet<String> hashList = new HashSet<>();
         HashSet<String> uniqueHashList = new HashSet<>();
-        for(int i = 0; i < list.size(); i++) {
-            if(list.get(i).equals("")) {
-                list.remove(i);
-            }
-            if(list.get(i).endsWith(",") | list.get(i).endsWith(".")) {
-                list.set(i, list.get(i).substring(0, list.get(i).length() - 1));
-            }
-            list.set(i, list.get(i).toLowerCase());
-        }
 
         for(String word : list) {
             uniqueHashList.add(word);
