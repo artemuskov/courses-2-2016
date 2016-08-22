@@ -24,6 +24,8 @@ public class TextAnalyzer {
         UniqueWordCount.calculateUniqueWord(INPUT_FILE, OUTPUT_FILE);
         UniqueWordCount2.calculateUniqueWord2(INPUT_FILE, OUTPUT_FILE);
         MostFrequencyWord.searchMostFrequencyWord(INPUT_FILE, OUTPUT_FILE);
+        WordStatistics.wordStatistics(INPUT_FILE, OUTPUT_FILE);
+        CharStatistics.charStatistics(INPUT_FILE, OUTPUT_FILE);
 
         System.out.println("Statistics complete");
 
