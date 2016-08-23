@@ -1,24 +1,17 @@
 package com.courses.spalah;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.stream.Stream;
 
 /**
  * Created by Artem Uskov on 19.08.2016.
  */
 public class MaxWordLenght {
 
-    public static void calculateMaxWordlenght(String input, String output) throws IOException {
-        FileWriter writer = new FileWriter(output, true);
+    public void calculateMaxWordlenght(String input, FileWriter writer) throws IOException {
         int wordLenght = 0;
-        ArrayList<String> list = CreateArrayList.createArrayList(input);
+        ArrayList<String> list = CreateWordsList.createArrayList(input);
 
         for(String word : list) {
             if(word.length() > wordLenght) {

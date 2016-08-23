@@ -2,11 +2,7 @@ package com.courses.spalah;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 
 /**
@@ -14,9 +10,8 @@ import java.util.HashSet;
  */
 public class UniqueWordCount2 {
 
-    public static void calculateUniqueWord2(String input, String output) throws IOException {
-        FileWriter writer = new FileWriter(output, true);
-        ArrayList<String> list = CreateArrayList.createArrayList(input);
+    public static void calculateUniqueWord2(String input, FileWriter writer) throws IOException {
+        ArrayList<String> list = CreateWordsList.createArrayList(input);
         HashSet<String> hashList = new HashSet<>();
         HashSet<String> uniqueHashList = new HashSet<>();
 

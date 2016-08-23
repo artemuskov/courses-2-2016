@@ -11,9 +11,14 @@ import java.util.Scanner;
  */
 public class WordsCount {
 
-    public static void calculateWords(String input, String output) throws IOException {
+    FileWriter writer;
+
+    public WordsCount(FileWriter writer) {
+        this.writer = writer;
+    }
+
+    public void calculateWords(String input) throws IOException {
         FileReader reader = new FileReader(input);
-        FileWriter writer = new FileWriter(output, true);
         Scanner sc = new Scanner(reader);
         int wordCount = 0;
         while(sc.hasNext()) {

@@ -1,5 +1,7 @@
 package com.courses.spalah;
 
+import sun.misc.IOUtils;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,9 +14,9 @@ import java.util.HashSet;
  */
 public class CharStatistics {
 
-    public static void charStatistics(String input, String output) throws IOException {
-        FileWriter writer = new FileWriter(output, true);
-        String str = String.join("\n", Files.readAllLines(Paths.get(input)));
+    public static void charStatistics(String input, FileWriter writer) throws IOException {
+        //String str = String.join("\n", Files.readAllLines(Paths.get(input)));
+        String str = new String(Files.readAllBytes(Paths.get(input)));
         char[] charlist = str.toLowerCase().toCharArray();
         HashSet<Character> chars = new HashSet<Character>();
         HashMap<Character, Integer> charStat = new HashMap<>();

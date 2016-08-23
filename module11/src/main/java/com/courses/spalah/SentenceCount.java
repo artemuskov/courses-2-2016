@@ -8,11 +8,10 @@ import java.util.Scanner;
 /**
  * Created by Artem Uskov on 19.08.2016.
  */
-public class SentenseCount {
+public class SentenceCount {
 
-    public static void calculateSentense(String input, String output)throws IOException{
+    public void calculateSentense(String input, FileWriter writer)throws IOException{
         FileReader reader = new FileReader(input);
-        FileWriter writer = new FileWriter(output, true);
         Scanner sc = new Scanner(reader);
         int sentensesCount = 0;
         while(sc.hasNextLine()) {

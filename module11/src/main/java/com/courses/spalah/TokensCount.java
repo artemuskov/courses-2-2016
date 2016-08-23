@@ -12,9 +12,8 @@ import java.util.Scanner;
  */
 public class TokensCount {
 
-    public static void calculateTokens(String input, String output) throws IOException{
+    public void calculateTokens(String input, FileWriter writer) throws IOException{
         FileReader reader = new FileReader(input);
-        FileWriter writer = new FileWriter(output, true);
         Scanner sc = new Scanner(reader);
         int tokensCount = 0;
         while(sc.hasNextLine()) {

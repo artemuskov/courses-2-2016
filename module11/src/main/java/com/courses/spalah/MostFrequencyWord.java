@@ -2,10 +2,7 @@ package com.courses.spalah;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -13,10 +10,9 @@ import java.util.Collections;
  */
 public class MostFrequencyWord {
 
-    public static void searchMostFrequencyWord(String input, String output) throws IOException {
-        FileWriter writer = new FileWriter(output, true);
+    public static void searchMostFrequencyWord(String input, FileWriter writer) throws IOException {
         String frequencyWord = "";
-        ArrayList<String> list = CreateArrayList.createArrayList(input);
+        ArrayList<String> list = CreateWordsList.createArrayList(input);
 
         int maxWordFrequency = Collections.frequency(list, list.get(0).toLowerCase());;
         for(String word : list) {

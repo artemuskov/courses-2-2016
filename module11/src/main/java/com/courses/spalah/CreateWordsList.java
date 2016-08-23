@@ -9,7 +9,7 @@ import java.util.Arrays;
 /**
  * Created by Artem Uskov on 22.08.2016.
  */
-public class CreateArrayList {
+public class CreateWordsList {
 
     private static ArrayList<String> stringArrayList = new ArrayList<>();
 
@@ -17,7 +17,7 @@ public class CreateArrayList {
         String str = String.join("\n", Files.readAllLines(Paths.get(input)));
         ArrayList<String> stringArrayList = new ArrayList<String>(Arrays.asList(str.split("\\s")));
         for(int i = 0; i < stringArrayList.size(); i++) {
-            if(stringArrayList.get(i).equals("")) {
+            if(stringArrayList.get(i).equals("") || (stringArrayList.get(i).equals("\n"))){
                 stringArrayList.remove(i);
             }
             if(stringArrayList.get(i).endsWith(",") | stringArrayList.get(i).endsWith(".")) {

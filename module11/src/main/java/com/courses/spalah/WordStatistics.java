@@ -11,9 +11,8 @@ import java.util.HashSet;
  */
 public class WordStatistics {
 
-    public static void wordStatistics(String input, String output) throws IOException {
-        FileWriter writer = new FileWriter(output, true);
-        ArrayList<String> list = CreateArrayList.createArrayList(input);
+    public static void wordStatistics(String input, FileWriter writer) throws IOException {
+        ArrayList<String> list = CreateWordsList.createArrayList(input);
         HashSet<String> words = new HashSet<>(list);
         HashMap<String, Integer> wordStat= new HashMap<>();
         int count = 0;
