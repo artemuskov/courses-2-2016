@@ -30,7 +30,6 @@ public class MyString {
             j++;
         }
         chars = tempchars;
-        tempchars = null;
     }
 
     public int length() {
