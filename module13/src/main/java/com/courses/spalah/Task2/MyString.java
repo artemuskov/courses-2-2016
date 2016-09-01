@@ -37,6 +37,10 @@ public class MyString {
     }
 
     public char getByIndex(int index) {
-        return chars[index];
+        try {
+            return chars[index];
+        } catch (Exception ex) {
+            return ' ';
+        }
     }
 }
