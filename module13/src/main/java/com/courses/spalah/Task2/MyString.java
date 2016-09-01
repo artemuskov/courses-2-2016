@@ -1,4 +1,4 @@
-package com.courses.spalah;
+package com.courses.spalah.Task2;
 
 import com.sun.deploy.util.ArrayUtil;
 

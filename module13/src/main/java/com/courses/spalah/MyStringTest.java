@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 /**
  * Created by Artem Uskov on 01.09.2016.
  */
-public class Main {
+public class MyStringTest {
 
     public static void main(String[] args) {
         char[] inputchars = readFromConsole();
