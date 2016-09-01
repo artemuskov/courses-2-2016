@@ -1,6 +1,7 @@
 package com.courses.spalah;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import com.courses.spalah.homework.Car;
 import com.courses.spalah.homework.ListFactory;
@@ -20,12 +21,13 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(JUnit4.class)
 public class SinglyLinkedListTest {
-    private MyList<String> stringList;
+    private LinkedList<String> stringList = new LinkedList<>();
+    //private MyList<String> stringList;
     private MyList<Car> carList;
 
     @Before
     public void setUp() {
-        stringList = ListFactory.createList(ListType.SINGLY_LINKED_LIST);
+        //stringList = ListFactory.createList(ListType.SINGLY_LINKED_LIST);
         carList = ListFactory.createList(ListType.SINGLY_LINKED_LIST);
     }
 

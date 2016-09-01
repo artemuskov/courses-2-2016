@@ -1,32 +1,40 @@
 package com.courses.spalah.homework;
 
+import java.util.Collection;
 import java.util.Iterator;
+
+import static java.util.Collections.addAll;
 
 /**
  * Created by Artem Uskov on 22.08.2016.
  */
 public class MyCustomList<E> implements MyList<E>{
 
-    //private Node first;
-    private int listCount;
+    private Node<E> first;
+    private Node<E> last;
+    private int size;
 
-//    public MyCustomList(Node first) {
-//        this.first = first;
-//        listCount = 0;
-//    }
+    public MyCustomList() {
+    }
 
-    public void myCustomList() {
+    public MyCustomList(Collection<? extends E> c) {
+        this();
+        addAll(c);
     }
 
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        if(size == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
