@@ -12,7 +12,7 @@ public class MyString {
 
     private char[] chars;
 
-    public MyString(char[] chars){
+    public MyString(char ... chars){
         this.chars = chars;
     }
 
