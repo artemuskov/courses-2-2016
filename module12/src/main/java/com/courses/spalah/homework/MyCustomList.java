@@ -39,11 +39,15 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean add(E element) {
-        return false;
+        linkLast(element);
+        return true;
     }
 
     @Override
     public void add(int index, E element) {
+        if(index >= 0 & index < size) {
+      //      linkBefore(element, );
+        }
 
     }
 
@@ -70,5 +74,31 @@ public class MyCustomList<E> implements MyList<E>{
     @Override
     public Iterator iterator() {
         return null;
+    }
+
+    void linkLast(E element) {
+        final Node<E> l = last;
+        final Node<E> newNode = new Node<E>(l, element, null);
+        last = newNode;
+        if(l == null) {
+            first = newNode;
+        }
+        else {
+            l.next = newNode;
+        }
+        size++;
+    }
+
+    void linkBefore(E element, Node<E> succ) {
+        final Node<E> pred = succ.prev;
+        final Node<E> newNode = new Node<E>(pred, element, succ);
+        succ.prev = newNode;
+        if(pred == null) {
+            first = newNode;
+        }
+        else {
+            pred.next = newNode;
+        }
+        size++;
     }
 }

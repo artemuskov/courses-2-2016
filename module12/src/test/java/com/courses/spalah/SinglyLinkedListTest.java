@@ -21,8 +21,7 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(JUnit4.class)
 public class SinglyLinkedListTest {
-    private LinkedList<String> stringList = new LinkedList<>();
-    //private MyList<String> stringList;
+    private MyList<String> stringList;
     private MyList<Car> carList;
 
     @Before

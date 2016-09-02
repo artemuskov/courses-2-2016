@@ -17,19 +17,20 @@ public class MyString {
     }
 
     public void print() {
-        for(int i = 0; i < chars.length; i++) {
-            System.out.print(chars[i]);
-        }
+        System.out.print(Arrays.toString(chars));
     }
 
     public void reverse() {
-        char[] tempchars = new char[chars.length];
         int j = 0;
-        for(int i = chars.length - 1; i >= 0; i-- ) {
-            tempchars[j] = chars[i];
+        int i = chars.length - 1;
+        char c;
+        while(i >= j) {
+            c = chars[j];
+            chars[j] = chars[i];
+            chars[i] = c;
             j++;
+            i--;
         }
-        chars = tempchars;
     }
 
     public int length() {
@@ -37,10 +38,6 @@ public class MyString {
     }
 
     public char getByIndex(int index) {
-        try {
-            return chars[index];
-        } catch (Exception ex) {
-            return ' ';
-        }
+          return chars[index];
     }
 }
