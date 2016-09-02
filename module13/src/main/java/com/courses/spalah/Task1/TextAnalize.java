@@ -24,8 +24,7 @@ public class TextAnalize {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             if(line.contains(inputText)) {
-                returnString += line;
-                returnString += "\n";
+                returnString += line + "\n";
             }
         }
         return returnString;
