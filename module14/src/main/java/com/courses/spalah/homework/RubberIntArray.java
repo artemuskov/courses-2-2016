@@ -1,5 +1,7 @@
 package com.courses.spalah.homework;
 
+import java.util.Arrays;
+
 /**
  * @author Ievgen Tararaka
  */
@@ -13,7 +15,10 @@ public class RubberIntArray {
      * @param i элемент, который необходимо добавить в массив
      */
     public void add(int i) {
-        // TODO ваш код должен быть тут
+        if(size == ints.length) {
+            ints = Arrays.copyOf(ints, ints.length + 5);
+        }
+        ints[size] = i;
         size ++;
     }
 

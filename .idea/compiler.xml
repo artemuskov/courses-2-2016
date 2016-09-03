@@ -26,17 +26,11 @@
         <module name="module11" />
         <module name="module12" />
         <module name="module13" />
+        <module name="module14" />
         <module name="module2" />
         <module name="module5" />
         <module name="module7" />
         <module name="src" />
-      </profile>
-      <profile default="false" name="Annotation profile for module14" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="module14" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

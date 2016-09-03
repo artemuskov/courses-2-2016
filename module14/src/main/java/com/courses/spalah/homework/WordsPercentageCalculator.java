@@ -2,10 +2,7 @@ package com.courses.spalah.homework;
 
 import com.courses.spalah.TextAnalyzer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Ievgen Tararaka
@@ -42,7 +39,6 @@ public class WordsPercentageCalculator {
                 words.add(word);
             }
         }
-
         System.out.println("Все слова=" + words);
     }
 
@@ -54,7 +50,22 @@ public class WordsPercentageCalculator {
      */
     public Map<String, Float> getPercentageMap() {
         HashMap<String, Float> percentageMap = new HashMap<>();
-        // TODO ваш код должен быть тут
+        for(String word : words) {
+            if(!percentageMap.containsKey(word.toLowerCase())) {
+                percentageMap.put(word.toLowerCase(), 1F);
+            }
+            else {
+                for (Map.Entry<String, Float> entry : percentageMap.entrySet()) {
+                    if(entry.getKey().equals(word.toLowerCase())) {
+                        percentageMap.put(word.toLowerCase(), entry.getValue() + 1);
+                    }
+                }
+            }
+        }
+        for (Map.Entry<String, Float> entry : percentageMap.entrySet()) {
+            Float f = entry.getValue();
+            percentageMap.put(entry.getKey(), f / words.size() * 100);
+        }
         return percentageMap;
     }
 }
