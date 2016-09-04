@@ -14,14 +14,6 @@ public class MyCustomList<E> implements MyList<E>{
     private Node<E> last;
     private int size;
 
-    public MyCustomList() {
-    }
-
-    public MyCustomList(Collection<? extends E> c) {
-        this();
-        addAll(c);
-    }
-
 
     @Override
     public int size() {
@@ -39,7 +31,17 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean add(E element) {
-        linkLast(element);
+        if(first == null) {
+            first = new Node<E>(last, element, null);
+            last = first;
+        }
+        else {
+            Node<E> l = last;
+            Node<E> newNode = new Node<E>(l, element, first);
+            last = newNode;
+            l.setNext(newNode);
+        }
+        size++;
         return true;
     }
 
@@ -68,6 +70,13 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean contains(E element) {
+        Node<E> currentElement = first;
+        for(int i = 0; i < size; i++) {
+            if (currentElement.equal(element)) {
+                return true;
+            }
+            currentElement = currentElement.getNext();
+        }
         return false;
     }
 
