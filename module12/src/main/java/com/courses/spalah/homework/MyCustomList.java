@@ -2,6 +2,7 @@ package com.courses.spalah.homework;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import static java.util.Collections.addAll;
 
@@ -70,14 +71,17 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean contains(E element) {
+        boolean isExit = false;
         Node<E> currentElement = first;
         for(int i = 0; i < size; i++) {
-            if (currentElement.equal(element)) {
-                return true;
+            if(currentElement.getElement().equals(element)) {
+                isExit = true;
             }
-            currentElement = currentElement.getNext();
+            else {
+                currentElement = currentElement.getNext();
+            }
         }
-        return false;
+        return isExit;
     }
 
     @Override
@@ -85,29 +89,5 @@ public class MyCustomList<E> implements MyList<E>{
         return null;
     }
 
-    void linkLast(E element) {
-        final Node<E> l = last;
-        final Node<E> newNode = new Node<E>(l, element, null);
-        last = newNode;
-        if(l == null) {
-            first = newNode;
-        }
-        else {
-            l.next = newNode;
-        }
-        size++;
-    }
 
-    void linkBefore(E element, Node<E> succ) {
-        final Node<E> pred = succ.prev;
-        final Node<E> newNode = new Node<E>(pred, element, succ);
-        succ.prev = newNode;
-        if(pred == null) {
-            first = newNode;
-        }
-        else {
-            pred.next = newNode;
-        }
-        size++;
-    }
 }

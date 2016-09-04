@@ -7,9 +7,9 @@ import java.util.Objects;
  */
 public class Node<E> {
 
-    E element;
-    Node<E> prev;
-    Node<E> next;
+    private E element;
+    private Node<E> prev;
+    private Node<E> next;
 
     Node(Node<E> prev, E element, Node<E> next) {
         this.element = element;
