@@ -41,13 +41,4 @@ public class Node<E> {
         this.next = next;
     }
 
-
-    boolean equal(E element){
-        if(element instanceof Node<?>) {
-            if( ((Node<?>)element).getElement().equals(getElement())) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
