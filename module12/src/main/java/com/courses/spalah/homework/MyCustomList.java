@@ -76,7 +76,7 @@ public class MyCustomList<E> implements MyList<E>{
             nextNode.setPrev(currentNode);
             size++;
         }
-        else {
+        if(index < 0 || index > listSize) {
             System.out.println("Wrong index");
         }
 
