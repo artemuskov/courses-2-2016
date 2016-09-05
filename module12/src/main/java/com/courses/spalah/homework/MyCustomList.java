@@ -1,10 +1,6 @@
 package com.courses.spalah.homework;
 
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedList;
-
-import static java.util.Collections.addAll;
 
 /**
  * Created by Artem Uskov on 22.08.2016.
@@ -152,8 +148,32 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public Iterator iterator() {
-        return null;
+        MyIterator iterator = new MyIterator();
+        return iterator;
     }
 
+    class MyIterator implements Iterator<E> {
+        int currentPosition;
 
+
+        @Override
+        public boolean hasNext() {
+            return currentPosition < size;
+        }
+
+        @Override
+        public E next() {
+           E element = (E) get(currentPosition);
+           currentPosition++;
+           return element;
+
+       }
+
+       @Override
+        public void remove() {
+           MyCustomList.this.remove(currentPosition);
+           currentPosition--;
+           size--;
+       }
+    }
 }

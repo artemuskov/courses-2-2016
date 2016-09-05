@@ -33,7 +33,7 @@ public class Car {
 
     public boolean equals(Object object) {
         Car car = (Car) object;
-        if((priceInDollars == car.getPriceInDollars()) & (modelName.equals(car.getModelName()))) {
+        if((priceInDollars == car.getPriceInDollars()) && (modelName.equals(car.getModelName()))) {
             return true;
         }
         return false;
