@@ -37,10 +37,10 @@ public class MyCustomList<E> implements MyList<E>{
             last = first;
         }
         else {
-            Node<E> l = last;
-            Node<E> newNode = new Node<E>(l, element, first);
-            last = newNode;
-            l.setNext(newNode);
+            Node<E> oldLast = last;
+            last = new Node<E>(oldLast, element, first);
+            oldLast.setNext(last);
+            first.setPrev(last);
         }
         size++;
         return true;
@@ -48,40 +48,106 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public void add(int index, E element) {
-        if(index >= 0 & index < size) {
-      //      linkBefore(element, );
+        int listSize = size;
+        if(index == 0) {
+            Node<E> oldFirst = first;
+            first = new Node<E>(last, element, oldFirst);
+            oldFirst.setPrev(first);
+            last.setNext(first);
+            size++;
+        }
+        if(index == listSize - 1) {
+            Node<E> oldLast = last;
+            last = new Node<E>(oldLast, element, first);
+            oldLast.setNext(last);
+            first.setPrev(last);
+            size++;
+        }
+        if(index > 0 & index < listSize - 1) {
+            Node<E> prevNode = null;
+            Node<E> nextNode = null;
+            Node<E> currentNode = first;
+            for(int i = 1; i < index; i++) {
+                prevNode = currentNode.getNext();
+            }
+            nextNode = prevNode.getNext();
+            currentNode = new Node<E>(prevNode, element, nextNode);
+            prevNode.setNext(currentNode);
+            nextNode.setPrev(currentNode);
+            size++;
+        }
+        else {
+            System.out.println("Wrong index");
         }
 
     }
 
     @Override
     public void remove(int index) {
+        int listSize = size;
+        if(index == 0) {
+           first = first.getNext();
+           first.setPrev(last);
+           last.setNext(first);
+           size--;
+       }
+       if(index == listSize - 1) {
+           last = last.getPrev();
+           last.setNext(first);
+           first.setPrev(last);
+           size--;
+       }
+       if(index > 0 & index < listSize - 1) {
+           Node<E> currentNode = first;
+           for(int i = 1; i <= index; i++) {
+               currentNode = currentNode.getNext();
+           }
+           Node<E> prevNode = currentNode.getPrev();
+           Node<E> nextNode = currentNode.getNext();
+           prevNode.setNext(nextNode);
+           nextNode.setPrev(prevNode);
+           size--;
+       }
+       if(index < 0 || index > listSize) {
+           System.out.println("Wrong index");
+       }
 
     }
 
     @Override
     public E get(int index) {
-        return null;
+        Node<E> currentNode = first;
+        for(int i = 0; i <= index; i++) {
+            currentNode = currentNode.getNext();
+        }
+        return currentNode.getElement();
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        Node<E> currentNode = first;
+        for(int i = 0; i <= index; i++) {
+            currentNode = currentNode.getNext();
+        }
+        E oldElement = currentNode.getElement();
+        currentNode.setElement(element);
+        return oldElement;
     }
 
     @Override
     public boolean contains(E element) {
-        boolean isExit = false;
+        boolean isContain = false;
         Node<E> currentElement = first;
         for(int i = 0; i < size; i++) {
             if(currentElement.getElement().equals(element)) {
-                isExit = true;
+                isContain = true;
+                return isContain;
             }
             else {
                 currentElement = currentElement.getNext();
             }
         }
-        return isExit;
+        return isContain;
     }
 
     @Override
