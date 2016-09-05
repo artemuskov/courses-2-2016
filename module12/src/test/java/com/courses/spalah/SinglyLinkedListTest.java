@@ -26,7 +26,7 @@ public class SinglyLinkedListTest {
 
     @Before
     public void setUp() {
-        //stringList = ListFactory.createList(ListType.SINGLY_LINKED_LIST);
+        stringList = ListFactory.createList(ListType.SINGLY_LINKED_LIST);
         carList = ListFactory.createList(ListType.SINGLY_LINKED_LIST);
     }
 

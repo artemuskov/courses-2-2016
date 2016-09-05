@@ -29,7 +29,7 @@ public class MyCustomList<E> implements MyList<E>{
     @Override
     public boolean add(E element) {
         if(first == null) {
-            first = new Node<E>(last, element, null);
+            first = new Node<E>(last, element, last);
             last = first;
         }
         else {
@@ -64,9 +64,10 @@ public class MyCustomList<E> implements MyList<E>{
             Node<E> nextNode = null;
             Node<E> currentNode = first;
             for(int i = 1; i < index; i++) {
-                prevNode = currentNode.getNext();
+                currentNode = currentNode.getNext();
             }
-            nextNode = prevNode.getNext();
+            nextNode = currentNode.getNext();
+            prevNode = currentNode;
             currentNode = new Node<E>(prevNode, element, nextNode);
             prevNode.setNext(currentNode);
             nextNode.setPrev(currentNode);
@@ -87,7 +88,7 @@ public class MyCustomList<E> implements MyList<E>{
            last.setNext(first);
            size--;
        }
-       if(index == listSize - 1) {
+       if(index == listSize - 1 && listSize > 1) {
            last = last.getPrev();
            last.setNext(first);
            first.setPrev(last);
@@ -113,7 +114,7 @@ public class MyCustomList<E> implements MyList<E>{
     @Override
     public E get(int index) {
         Node<E> currentNode = first;
-        for(int i = 0; i <= index; i++) {
+        for(int i = 0; i < index; i++) {
             currentNode = currentNode.getNext();
         }
         return currentNode.getElement();
@@ -122,7 +123,7 @@ public class MyCustomList<E> implements MyList<E>{
     @Override
     public E set(int index, E element) {
         Node<E> currentNode = first;
-        for(int i = 0; i <= index; i++) {
+        for(int i = 0; i < index; i++) {
             currentNode = currentNode.getNext();
         }
         E oldElement = currentNode.getElement();
