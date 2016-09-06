@@ -28,14 +28,7 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean add(E element) {
-<<<<<<< HEAD
         Node<E> newNode = new Node<E>(first, element, last);
-
-
-
-
-        //linkLast(element);
-=======
         if(first == null) {
             first = new Node<E>(last, element, last);
             last = first;
@@ -47,7 +40,6 @@ public class MyCustomList<E> implements MyList<E>{
             first.setPrev(last);
         }
         size++;
->>>>>>> 502c66224a8f43be0842f2ce001749b937b7c220
         return true;
     }
 
