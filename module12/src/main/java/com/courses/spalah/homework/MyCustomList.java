@@ -39,7 +39,12 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean add(E element) {
-        linkLast(element);
+        Node<E> newNode = new Node<E>(first, element, last);
+
+
+
+
+        //linkLast(element);
         return true;
     }
 
