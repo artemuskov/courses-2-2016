@@ -8,7 +8,6 @@ import java.util.Map;
  */
 public class MultiMapImplementation<K, V> implements MultiMap<K, V> {
     private int size;
-    MultiMapImplementation<K, V> multiMapImplementation;
 
     @Override
     public boolean put(K key, V value) {
