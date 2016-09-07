@@ -28,6 +28,7 @@ public class MyCustomList<E> implements MyList<E>{
 
     @Override
     public boolean add(E element) {
+        Node<E> newNode = new Node<E>(first, element, last);
         if(first == null) {
             first = new Node<E>(last, element, last);
             last = first;
