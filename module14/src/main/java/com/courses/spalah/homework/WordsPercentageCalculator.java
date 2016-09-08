@@ -39,7 +39,7 @@ public class WordsPercentageCalculator {
                 words.add(word);
             }
         }
-        System.out.println("Все слова=" + words);
+        //System.out.println("Все слова=" + words);
     }
 
     /**
