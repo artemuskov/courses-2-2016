@@ -7,8 +7,11 @@ import java.util.*;
  */
 public class MultiMapImplementation<K, V> implements MultiMap<K, V> {
     private int size;
+<<<<<<< HEAD
+=======
     private Collection<V> valueMap = new ArrayList<V>();
     private HashMap<K, Collection<V>> map = new HashMap<K, Collection<V>>();
+>>>>>>> 49df4533b8fcef7b824023dc620a074b027ef93c
 
     @Override
     public boolean put(K key, V value) {
