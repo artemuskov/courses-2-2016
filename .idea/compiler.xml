@@ -28,24 +28,12 @@
         <module name="module14" />
         <module name="module15" />
         <module name="module16" />
+        <module name="module17" />
+        <module name="module18" />
         <module name="module2" />
         <module name="module5" />
         <module name="module7" />
         <module name="src" />
-      </profile>
-      <profile default="false" name="Annotation profile for module17" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="module17" />
-      </profile>
-      <profile default="false" name="Annotation profile for module18" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="module18" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
