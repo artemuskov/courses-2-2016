@@ -11,8 +11,8 @@ import java.sql.Statement;
  */
 public class JdbcExample {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        registerDriver();
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "phant0m"); // открытие соединения к базе
+        //registerDriver();
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "root"); // открытие соединения к базе
         Statement statement = con.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM people.person");
         int columnCount = rs.getMetaData().getColumnCount();
