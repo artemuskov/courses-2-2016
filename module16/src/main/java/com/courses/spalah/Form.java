@@ -103,30 +103,6 @@ public class Form extends JFrame {
         add(panel);
         panel.requestFocus();
     }
-
-    public String getInputName() {
-        return textFieldNameIn.getText();
-    }
-
-    public String getInputSurname() {
-        return textFieldSurnameIn.getText();
-    }
-
-    public String getInputAddress() {
-        return textFieldAddressIn.getText();
-    }
-
-    public void setOutputName(String s) {
-        textFieldNameOut.setText(s);
-    }
-
-    public void setOutputSurname(String s) {
-        textFieldSurnameOut.setText(s);
-    }
-
-    public void setOutputAddress(String s) {
-        textFieldAddressOut.setText(s);
-    }
 }
 
 class Focus implements FocusListener {
