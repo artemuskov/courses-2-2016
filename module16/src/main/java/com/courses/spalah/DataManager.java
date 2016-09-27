@@ -1,10 +1,9 @@
 package com.courses.spalah;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+
+import static com.courses.spalah.Form.label;
 
 /**
  * Created by Artem Uskov on 26.09.2016.
@@ -19,14 +18,33 @@ public class DataManager {
     private final String ADDRESS = "address";
 
 
-    public void savePerson(Person person) throws IOException, SQLException {
+    public int savePerson(Person person) throws IOException, SQLException {
         String name = person.getName();
         String surname = person.getSurname();
         String address = person.getAddress();
         Connection connection = Contacts.connectionManager.createConnection();
-        PreparedStatement psPerson = connection.prepareStatement(INSERTTOPERSON);
-        PreparedStatement psAddress = connection.prepareStatement(INSERTTOADDRESS);
+        PreparedStatement psPerson = connection.prepareStatement(INSERTTOPERSON, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement psAddress = connection.prepareStatement(INSERTTOADDRESS, Statement.RETURN_GENERATED_KEYS);
 
+        psAddress.setString(1, address);
+        psAddress.executeUpdate();
+
+        ResultSet generatedAddressKey = psAddress.getGeneratedKeys();
+        generatedAddressKey.next();
+        int id = generatedAddressKey.getInt(1);
+        psPerson.setString(1, name);
+        psPerson.setString(2, surname);
+        psPerson.setInt(3, id);
+        psPerson.executeUpdate();
+
+        ResultSet generatedPersonKey = psPerson.getGeneratedKeys();
+        generatedPersonKey.next();
+        int personId = generatedPersonKey.getInt(1);
+
+        psPerson.close();
+        psAddress.close();
+        connection.close();
+        return personId;
     }
 
     public Person readPerson(int id) throws IOException, SQLException {

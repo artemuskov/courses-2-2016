@@ -25,7 +25,7 @@ public class Form extends JFrame {
     private JTextField textFieldSurnameOut = new JTextField("Surname", 15);
     private JTextField textFieldAddressOut = new JTextField("Address", 15);
     private JTextField textFieldId = new JTextField();
-    private JLabel label = new JLabel("");
+    public static JLabel label = new JLabel("");
 
     public Form() {
         super("Contacts");
@@ -54,7 +54,7 @@ public class Form extends JFrame {
         buttonRead.setBounds(20, 130, 65, 65);
         buttonRead.setBackground(Color.CYAN);
         panel.add(label);
-        label.setBounds(120, 50, 70, 70);
+        label.setBounds(120, 50, 150, 70);
         panel.add(textFieldId);
         textFieldId.setBounds(120, 150, 25, 25);
         panel.add(textFieldNameOut);
@@ -80,6 +80,26 @@ public class Form extends JFrame {
                 }
             }
         });
+        buttonSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Person person = new Person(null, null, null);
+                person.setName(textFieldNameIn.getText());
+                person.setSurname(textFieldSurnameIn.getText());
+                person.setAddress(textFieldAddressIn.getText());
+                DataManager data = new DataManager();
+                try {
+                    int personId = data.savePerson(person);
+                    label.setText("Saved with id " + personId);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+        });
+
         add(panel);
         panel.requestFocus();
     }
