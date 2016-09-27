@@ -14,7 +14,7 @@ public class Contacts {
 
     public static void main(String[] args) throws SQLException, IOException {
         contactsForm = new Form();
-        connection = connectionManager.createConnection();
-        connection.close();
+        //connection = connectionManager.createConnection();
+        //connection.close();
     }
 }

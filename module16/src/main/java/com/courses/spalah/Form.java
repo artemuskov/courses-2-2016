@@ -4,8 +4,12 @@ import com.sun.jndi.cosnaming.IiopUrl;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by Artem Uskov on 26.09.2016.
@@ -59,6 +63,23 @@ public class Form extends JFrame {
         textFieldNameOut.setBounds(20, 220, 120, 25);
         textFieldSurnameOut.setBounds(150, 220, 120, 25);
         textFieldAddressOut.setBounds(280, 220, 200, 25);
+        buttonRead.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.parseInt(textFieldId.getText());
+                DataManager data = new DataManager();
+                try {
+                    Person person = data.readPerson(id);
+                    textFieldNameOut.setText(person.getName());
+                    textFieldSurnameOut.setText(person.getSurname());
+                    textFieldAddressOut.setText(person.getAddress());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
         add(panel);
         panel.requestFocus();
     }
