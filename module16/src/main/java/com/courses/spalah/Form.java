@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
@@ -69,7 +70,9 @@ public class Form extends JFrame {
                 int id = Integer.parseInt(textFieldId.getText());
                 DataManager data = new DataManager();
                 try {
-                    Person person = data.readPerson(id);
+                    Connection connection = Contacts.connectionManager.createConnection();
+                    Person person = data.readPerson(id, connection);
+                    connection.close();
                     textFieldNameOut.setText(person.getName());
                     textFieldSurnameOut.setText(person.getSurname());
                     textFieldAddressOut.setText(person.getAddress());

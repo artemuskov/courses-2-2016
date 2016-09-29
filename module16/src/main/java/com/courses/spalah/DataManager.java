@@ -47,9 +47,8 @@ public class DataManager {
         return personId;
     }
 
-    public Person readPerson(int id) throws IOException, SQLException {
+    public Person readPerson(int id, Connection connection) throws IOException, SQLException {
         Person person = new Person(null, null, null);
-        Connection connection = Contacts.connectionManager.createConnection();
         PreparedStatement psSelectperson = connection.prepareStatement(SELECTPERSON);
         psSelectperson.setInt(1, id);
         ResultSet result = psSelectperson.executeQuery();
@@ -59,7 +58,6 @@ public class DataManager {
             person.setAddress(result.getString(ADDRESS));
         }
         psSelectperson.close();
-        connection.close();
         return person;
     }
 }

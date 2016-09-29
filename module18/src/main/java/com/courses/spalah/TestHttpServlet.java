@@ -1,4 +1,4 @@
-package spalah;
+package com.courses.spalah;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TestHttpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().write("<html><body>GET response</body></html>");
+        response.getWriter().write("<html><body>GET response FROM HTTP SERVLET</body></html>");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
