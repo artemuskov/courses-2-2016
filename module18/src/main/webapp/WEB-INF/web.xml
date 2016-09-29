@@ -11,9 +11,11 @@
 
     <servlet>
         <servlet-name>test</servlet-name>
-        <servlet-class>com.courses.spalah.TestGenericServlet</servlet-class>
+        <servlet-class>com.courses.spalah.ContactsHttpServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+
 
     <servlet-mapping>
         <servlet-name>test</servlet-name>

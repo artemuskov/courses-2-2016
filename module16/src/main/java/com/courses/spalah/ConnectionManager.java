@@ -24,8 +24,7 @@ public class ConnectionManager {
 
     public Connection createConnection() throws SQLException, IOException {
         Properties prop = new Properties();
-        InputStream input = null;
-        input = new FileInputStream(pathToProperties);
+        InputStream input = new FileInputStream(pathToProperties);
         prop.load(input);
         url = prop.getProperty("url");
         username = prop.getProperty("username");

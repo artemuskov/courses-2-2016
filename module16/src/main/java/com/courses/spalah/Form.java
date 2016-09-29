@@ -4,8 +4,13 @@ import com.sun.jndi.cosnaming.IiopUrl;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Created by Artem Uskov on 26.09.2016.
@@ -21,7 +26,7 @@ public class Form extends JFrame {
     private JTextField textFieldSurnameOut = new JTextField("Surname", 15);
     private JTextField textFieldAddressOut = new JTextField("Address", 15);
     private JTextField textFieldId = new JTextField();
-    private JLabel label = new JLabel("");
+    public static JLabel label = new JLabel("");
 
     public Form() {
         super("Contacts");
@@ -50,7 +55,7 @@ public class Form extends JFrame {
         buttonRead.setBounds(20, 130, 65, 65);
         buttonRead.setBackground(Color.CYAN);
         panel.add(label);
-        label.setBounds(120, 50, 70, 70);
+        label.setBounds(120, 50, 150, 70);
         panel.add(textFieldId);
         textFieldId.setBounds(120, 150, 25, 25);
         panel.add(textFieldNameOut);
@@ -59,32 +64,47 @@ public class Form extends JFrame {
         textFieldNameOut.setBounds(20, 220, 120, 25);
         textFieldSurnameOut.setBounds(150, 220, 120, 25);
         textFieldAddressOut.setBounds(280, 220, 200, 25);
+        buttonRead.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.parseInt(textFieldId.getText());
+                DataManager data = new DataManager();
+                try {
+                    Connection connection = Contacts.connectionManager.createConnection();
+                    Person person = data.readPerson(id, connection);
+                    connection.close();
+                    textFieldNameOut.setText(person.getName());
+                    textFieldSurnameOut.setText(person.getSurname());
+                    textFieldAddressOut.setText(person.getAddress());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        buttonSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Person person = new Person(null, null, null);
+                person.setName(textFieldNameIn.getText());
+                person.setSurname(textFieldSurnameIn.getText());
+                person.setAddress(textFieldAddressIn.getText());
+                DataManager data = new DataManager();
+                try {
+                    int personId = data.savePerson(person);
+                    label.setText("Saved with id " + personId);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+        });
+
         add(panel);
         panel.requestFocus();
-    }
-
-    public String getInputName() {
-        return textFieldNameIn.getText();
-    }
-
-    public String getInputSurname() {
-        return textFieldSurnameIn.getText();
-    }
-
-    public String getInputAddress() {
-        return textFieldAddressIn.getText();
-    }
-
-    public void setOutputName(String s) {
-        textFieldNameOut.setText(s);
-    }
-
-    public void setOutputSurname(String s) {
-        textFieldSurnameOut.setText(s);
-    }
-
-    public void setOutputAddress(String s) {
-        textFieldAddressOut.setText(s);
     }
 }
 

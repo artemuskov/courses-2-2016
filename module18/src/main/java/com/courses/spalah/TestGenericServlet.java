@@ -1,4 +1,4 @@
-package spalah;
+package com.courses.spalah;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletConfig;
@@ -18,6 +18,6 @@ public class TestGenericServlet extends GenericServlet {
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        servletResponse.getWriter().write("<html><body>YEAH BABY</body></html>");
+        servletResponse.getWriter().write("<html><body>THIS IS A GENERIC SERVLET !!!! YEAH BABY</body></html>");
     }
 }

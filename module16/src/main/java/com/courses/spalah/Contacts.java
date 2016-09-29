@@ -10,11 +10,8 @@ import java.sql.SQLException;
 public class Contacts {
     public static Form contactsForm;
     static ConnectionManager connectionManager = new ConnectionManager("C:\\db.properties");
-    static Connection connection;
 
     public static void main(String[] args) throws SQLException, IOException {
         contactsForm = new Form();
-        connection = connectionManager.createConnection();
-        connection.close();
     }
 }
