@@ -58,6 +58,13 @@ public class ContactsHttpServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
+            registerDriver();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         Person person = new Person(null, null, null);
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
