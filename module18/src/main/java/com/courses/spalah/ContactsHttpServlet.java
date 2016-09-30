@@ -2,6 +2,7 @@ package com.courses.spalah;
 
 import com.sun.net.httpserver.HttpServer;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,23 +34,49 @@ public class ContactsHttpServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-
-        Person person;
+        Person person = new Person(null, null, null);
         DataManager data = new DataManager();
+        int param1 = Integer.parseInt(request.getParameter("userId"));
         try {
             ConnectionManager connectionManager = new ConnectionManager("C:\\db.properties");
             Connection connection = connectionManager.createConnection();
-            person = data.readPerson(1, connection);
+            person = data.readPerson(param1, connection);
             connection.close();
             String name = person.getName();
             String surname = person.getSurname();
             String address = person.getAddress();
+
             final String GETNAMERESPONSE = "<html><body>" + name + " " + surname + " " + address + "</body></html>";
             response.getWriter().write(GETNAMERESPONSE);
-
         } catch (SQLException e) {
             e.printStackTrace();
+            response.getWriter().write("<html><body>Wrong request</body></html>");
         }
-        response.getWriter().write("<html><body>Response from Contacts servlet !!!</body></html>");
+
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Person person = new Person(null, null, null);
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        String address = request.getParameter("address");
+        person.setName(name);
+        person.setSurname(surname);
+        person.setAddress(address);
+        int userId;
+        DataManager data = new DataManager();
+        ConnectionManager connectionManager = new ConnectionManager("C:\\db.properties");
+        try {
+            Connection connection = connectionManager.createConnection();
+            userId = data.savePerson(person, connection);
+            connection.close();
+            final String SETUSERRESPONSE = "<html><body>User " + name + " " + surname + " " + address + " saved with id " + userId + "</body></html>";
+            response.getWriter().write(SETUSERRESPONSE);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.getWriter().write("<html><body>Wrong request</body></html>");
+        }
     }
 }

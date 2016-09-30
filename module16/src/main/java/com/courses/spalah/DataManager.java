@@ -18,11 +18,11 @@ public class DataManager {
     private final String ADDRESS = "address";
 
 
-    public int savePerson(Person person) throws IOException, SQLException {
+    public int savePerson(Person person, Connection connection) throws IOException, SQLException {
         String name = person.getName();
         String surname = person.getSurname();
         String address = person.getAddress();
-        Connection connection = Contacts.connectionManager.createConnection();
+        //Connection connection = Contacts.connectionManager.createConnection();
         PreparedStatement psPerson = connection.prepareStatement(INSERTTOPERSON, Statement.RETURN_GENERATED_KEYS);
         PreparedStatement psAddress = connection.prepareStatement(INSERTTOADDRESS, Statement.RETURN_GENERATED_KEYS);
 
@@ -43,7 +43,6 @@ public class DataManager {
 
         psPerson.close();
         psAddress.close();
-        connection.close();
         return personId;
     }
 
