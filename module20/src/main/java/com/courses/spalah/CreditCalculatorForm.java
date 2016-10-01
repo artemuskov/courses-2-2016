@@ -19,7 +19,7 @@ public class CreditCalculatorForm extends JFrame{
     private JComboBox termOfCredit = new JComboBox(listOfTerms);
     private JTextField oneTimeCommisionSumm = new JTextField("Одноразовая комиссия, сумма");
     private JTextField everyMounthCommisionSumm = new JTextField("Ежемесячная комиссия, сумма");
-    private JButton calculateButton = new JButton("Рассчитать");
+    public static JButton calculateButton = new JButton("Рассчитать");
     private JLabel prepaidSumm = new JLabel("Первоначальный взнос - ");
     private JLabel creditSumm = new JLabel("Сумма кредита - ");
     private JLabel oneTimeCommisionPay = new JLabel("Разовые комиссионые расходы - ");
@@ -77,7 +77,55 @@ public class CreditCalculatorForm extends JFrame{
 
         add(panel);
 
-    };
+    }
+
+    public float getTotalBuySumm() {
+        return Float.parseFloat(totalBuySumm.getText());
+    }
+
+    public float getPrepaidPercent() {
+        return Float.parseFloat(prepaidPercent.getText());
+    }
+
+    public float getOneTimeCommisionPersent() {
+        return Float.parseFloat(oneTimeCommisionPercent.getText());
+    }
+
+    public float getEveryMounthCommisionPercent() {
+        return Float.parseFloat(everyMounthCommisionPercent.getText());
+    }
+
+    public float getAnnualRatePercent() {
+        return Float.parseFloat(annualRatePercent.getText());
+    }
+
+    public Integer getTermOfCredit() {
+        return listOfTerms[termOfCredit.getSelectedIndex()];
+    }
+
+    public float getOneTimeCommisionSumm() {
+        return Float.parseFloat(oneTimeCommisionSumm.getText());
+    }
+
+    public float getEveryMonthCommisionSumm() {
+        return Float.parseFloat(everyMounthCommisionSumm.getText());
+    }
+
+    public void setPrepaidSumm(float summ) {
+        prepaidSumm.setText("Первоначальный взнос - "+ summ);
+    }
+
+    public void setCreditSumm(float summ) {
+        creditSumm.setText("Сумма кредита - " + summ);
+    }
+
+    public void setOneTimeCommisionPay(float summ) {
+        oneTimeCommisionPay.setText("Разовые комиссионые расходы - " + summ);
+    }
+
+    public void setMonthlyCommitionPay(float summ) {
+        monthlyCommisionPay.setText("Ежемесячные комиссионые расходы - " + summ);
+    }
 
 
 }
