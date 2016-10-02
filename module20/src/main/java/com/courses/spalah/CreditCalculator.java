@@ -18,14 +18,6 @@ public class CreditCalculator {
     private float everyMounthCommisionSumm;
     static CreditCalculatorForm form;
 
-    public static void main(String[] args) {
-        form = new CreditCalculatorForm();
-    }
-
-    public void calculatePrepaidSumm() {
-
-    }
-
     void setVariables() {
         totalBuySumm = form.getTotalBuySumm();
         prepaidPercent = form.getPrepaidPercent();
@@ -37,12 +29,23 @@ public class CreditCalculator {
         everyMounthCommisionSumm = form.getEveryMonthCommisionSumm();
     }
 
-    void addListenerOnButton() {
+    public void addListenerOnButton() {
         CreditCalculatorForm.calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                setVariables();
             }
         });
     }
+
+    public static void main(String[] args) {
+
+        form = new CreditCalculatorForm();
+    }
+
+    public void calculatePrepaidSumm() {
+
+    }
+
+
 }

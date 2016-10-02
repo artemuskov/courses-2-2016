@@ -12,10 +12,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.3" level="project" />
-<<<<<<< HEAD
-=======
     <orderEntry type="module" module-name="module16" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.36" level="project" />
->>>>>>> 935744ebe0d8dffb504813ecad86cc97735b24fc
   </component>
 </module>
