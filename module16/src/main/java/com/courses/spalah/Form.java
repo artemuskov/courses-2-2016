@@ -91,8 +91,11 @@ public class Form extends JFrame {
                 person.setSurname(textFieldSurnameIn.getText());
                 person.setAddress(textFieldAddressIn.getText());
                 DataManager data = new DataManager();
+
                 try {
-                    int personId = data.savePerson(person);
+                    Connection connection = Contacts.connectionManager.createConnection();
+                    int personId = data.savePerson(person, connection);
+                    connection.close();
                     label.setText("Saved with id " + personId);
                 } catch (IOException e1) {
                     e1.printStackTrace();

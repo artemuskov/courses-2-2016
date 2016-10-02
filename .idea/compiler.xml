@@ -32,6 +32,7 @@
         <module name="module18" />
         <module name="module19" />
         <module name="module2" />
+        <module name="module20" />
         <module name="module5" />
         <module name="module7" />
         <module name="src" />
@@ -49,6 +50,7 @@
       <module name="module18" target="1.8" />
       <module name="module19" target="1.8" />
       <module name="module2" target="1.8" />
+      <module name="module20" target="1.8" />
       <module name="module3" target="1.8" />
       <module name="module4" target="1.8" />
       <module name="module5" target="1.8" />
