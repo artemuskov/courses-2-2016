@@ -1,6 +1,9 @@
-package com.courses.spalah;
+package com.courses.spalah.Homework;
 
 import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static com.sun.glass.ui.Cursor.setVisible;
 
@@ -23,7 +26,7 @@ public class CreditCalculatorForm extends JFrame{
     private JLabel prepaidSumm = new JLabel("Первоначальный взнос - ");
     private JLabel creditSumm = new JLabel("Сумма кредита - ");
     private JLabel oneTimeCommisionPay = new JLabel("Разовые комиссионые расходы - ");
-    private JLabel monthlyCommisionPay = new JLabel("Ежемесячные комиссионые расходы - ");
+    private JLabel monthlyCommisionPay = new JLabel("Комиссионные расходы за весь срок - ");
 
     public CreditCalculatorForm() {
         super("Credit Calculator");
@@ -75,6 +78,23 @@ public class CreditCalculatorForm extends JFrame{
         panel.add(monthlyCommisionPay);
         monthlyCommisionPay.setBounds(20, 280, 300, 20);
 
+
+        calculateButton.addActionListener(new ActionListener() {
+            CalculationManager calculationManager;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                calculationManager = new CalculationManager();
+                calculationManager.setVariables();
+
+                setPrepaidSumm(calculationManager.calculatePrepaidSumm(getTotalBuySumm(), getPrepaidPercent()));
+                setCreditSumm(calculationManager.calculateCreditSumm(getTotalBuySumm(), calculationManager.getPrepaidSumm()));
+                calculationManager.calculateOneTimeCommision();
+                calculationManager.calculateMonthlyCommision();
+
+            }
+        });
+
         add(panel);
 
     }
@@ -124,7 +144,7 @@ public class CreditCalculatorForm extends JFrame{
     }
 
     public void setMonthlyCommitionPay(float summ) {
-        monthlyCommisionPay.setText("Ежемесячные комиссионые расходы - " + summ);
+        monthlyCommisionPay.setText("Комиссионные расходы за весь срок - " + summ);
     }
 
 
