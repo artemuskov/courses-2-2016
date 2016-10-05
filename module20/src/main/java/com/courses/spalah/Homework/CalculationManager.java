@@ -17,7 +17,7 @@ public class CalculationManager {
     private float creditSumm;
     private float oneTimeCommision;
     private float monthlyCommision;
-    CreditCalculatorForm form = CreditCalculator.form;
+    private CreditCalculatorForm form = CreditCalculator.form;
 
     public void setVariables() {
         totalBuySumm = form.getTotalBuySumm();

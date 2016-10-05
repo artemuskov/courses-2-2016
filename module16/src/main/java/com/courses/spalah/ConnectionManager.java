@@ -12,7 +12,7 @@ import java.util.Properties;
  * Created by Artem Uskov on 26.09.2016.
  */
 public class ConnectionManager {
-    Connection connection;
+    private Connection connection;
     private String pathToProperties;
     private String url;
     private String username;

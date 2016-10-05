@@ -22,7 +22,6 @@ public class DataManager {
         String name = person.getName();
         String surname = person.getSurname();
         String address = person.getAddress();
-        //Connection connection = Contacts.connectionManager.createConnection();
         PreparedStatement psPerson = connection.prepareStatement(INSERTTOPERSON, Statement.RETURN_GENERATED_KEYS);
         PreparedStatement psAddress = connection.prepareStatement(INSERTTOADDRESS, Statement.RETURN_GENERATED_KEYS);
 
