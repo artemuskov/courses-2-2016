@@ -18,7 +18,6 @@ import java.sql.DriverManager;
 public class ContactsHttpServlet extends HttpServlet {
 
     private final String WRONGREQUEST = "<html><body>Wrong request</body></html>";
-    //private final String GETNAMERESPONSE = "<html><body>" + name + " " + surname + " " + address + "</body></html>";
 
     private static void registerDriver() throws ClassNotFoundException, SQLException {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
