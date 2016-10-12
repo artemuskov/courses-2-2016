@@ -33,23 +33,11 @@
         <module name="module19" />
         <module name="module2" />
         <module name="module20" />
+        <module name="module21" />
+        <module name="module22" />
         <module name="module5" />
         <module name="module7" />
         <module name="src" />
-      </profile>
-      <profile default="false" name="Annotation profile for module21" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="module21" />
-      </profile>
-      <profile default="false" name="Annotation profile for module22" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="module22" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
