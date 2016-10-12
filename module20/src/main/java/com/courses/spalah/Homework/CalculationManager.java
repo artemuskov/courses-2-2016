@@ -36,19 +36,18 @@ public class CalculationManager {
 
     public float calculatePrepaidSumm(float totalBuySumm, float prepaidPercent) {
         firstTimePrepaid = totalBuySumm * prepaidPercent / 100;
-//        form.setPrepaidSumm(firstTimePrepaid);
         return firstTimePrepaid;
     }
 
     public float calculateCreditSumm(float totalBuySumm, float firstTimePrepaid) {
         creditSumm = totalBuySumm - firstTimePrepaid;
-//        form.setCreditSumm(creditSumm);
         return creditSumm;
     }
 
-    public void calculateOneTimeCommision() {
+    public float calculateOneTimeCommision() {
         oneTimeCommision = (creditSumm / 100 * oneTimeCommisionPercent) + oneTimeCommisionSumm;
-        form.setOneTimeCommisionPay(oneTimeCommision);
+//        form.setOneTimeCommisionPay(oneTimeCommision);
+        return oneTimeCommision;
     }
 
     public void calculateMonthlyCommision() {
