@@ -17,7 +17,8 @@ public class Ball {
     private final Random RANDOM = new Random();
     private Color color;
     private int direction;
-    private int speed;
+    private int speedX;
+    private int speedY;
 
     public Color setRandomColor() {
         color = COLORS.get(RANDOM.nextInt(SIZE));
@@ -29,11 +30,15 @@ public class Ball {
         return radius;
     }
 
-    public int setRandomSpeed() {
-        speed = RANDOM.nextInt(20) + 5;
-        return speed;
+    public int setRandomSpeedX() {
+        speedX = RANDOM.nextInt(20) + 5;
+        return speedX;
     }
 
+    public int setRandomSpeedY() {
+        speedY = RANDOM.nextInt(20) + 5;
+        return speedY;
+    }
     public int getPosotionX() {
         return positionX;
     }
@@ -46,8 +51,12 @@ public class Ball {
         return radius;
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getSpeedX() {
+        return speedX;
+    }
+
+    public int getSpeedY() {
+        return speedY;
     }
 
     public Color getColor() {

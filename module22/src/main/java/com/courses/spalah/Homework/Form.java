@@ -9,6 +9,7 @@ import java.awt.Color;
  */
 public class Form extends JFrame {
     private JPanel panel = new JPanel();
+    JButton button = new JButton();
 
     public Form() {
         init();
@@ -16,10 +17,13 @@ public class Form extends JFrame {
 
     public void init() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(800, 800);
+        setSize(600, 600);
         setResizable(false);
         setVisible(true);
-        panel.setBackground(Color.lightGray);
+        panel.setBackground(Color.BLUE);
+        button.
         add(panel);
     }
+
+
 }

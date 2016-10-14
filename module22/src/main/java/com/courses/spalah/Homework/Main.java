@@ -10,12 +10,14 @@ public class Main {
 
     public static void main(String[] args) {
         ball.setRandomColor();
-        ball.setRandomSpeed();
+        ball.setRandomSpeedX();
+        ball.setRandomSpeedY();
         ball.setRandomRadius();
         form = new Form();
 
         System.out.println("Radius = " + ball.getRadius());
-        System.out.println("Speed = " + ball.getSpeed());
+        System.out.println("Speed = " + ball.getSpeedX());
+        System.out.println("Speed = " + ball.getSpeedY());
         System.out.println("Color = " + ball.getColor());
     }
 
