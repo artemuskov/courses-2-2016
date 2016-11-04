@@ -23,6 +23,14 @@ public class SeparateThreadBallContainer extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Ball ball = new Ball();
+               Thread thread = new Thread(new Runnable() {
+                   @Override
+                   public void run() {
+                       while (true) {
+                           moveBall(ball);
+                       }
+                   }
+               });
                 balls.add(ball.init(e.getPoint()));
                 System.out.println("click");
             }
