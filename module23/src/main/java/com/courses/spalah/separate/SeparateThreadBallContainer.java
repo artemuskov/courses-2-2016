@@ -60,27 +60,28 @@ public class SeparateThreadBallContainer extends JPanel {
     }
 
     public void moveBall(Ball ball) {
-        Point position = ball.getPosition();
-        int radius = ball.getRadius();
-        position.x += ball.getVx();
-        position.y += ball.getVy();
-        Dimension panelSize = getSize();
-        if ((position.x + radius) >= panelSize.width) {
-            position.x = panelSize.width - radius;
-            ball.changeDirection(Ball.Direction.X);
-        }
-        if (position.x < 0) {
-            position.x = 0;
-            ball.changeDirection(Ball.Direction.X);
-        }
-        if ((position.y + radius) >= panelSize.height) {
-            position.y = panelSize.height - radius;
-            ball.changeDirection(Ball.Direction.Y);
-        }
-        if (position.y < 0) {
-            position.y = 0;
-            ball.changeDirection(Ball.Direction.Y);
-        }
-        ball.setPosition(position);
-    }
+                Point position = ball.getPosition();
+                int radius = ball.getRadius();
+                position.x += ball.getVx();
+                position.y += ball.getVy();
+                Dimension panelSize = getSize();
+                if ((position.x + radius) >= panelSize.width) {
+                    position.x = panelSize.width - radius;
+                    ball.changeDirection(Ball.Direction.X);
+                }
+                if (position.x < 0) {
+                    position.x = 0;
+                    ball.changeDirection(Ball.Direction.X);
+                }
+                if ((position.y + radius) >= panelSize.height) {
+                    position.y = panelSize.height - radius;
+                    ball.changeDirection(Ball.Direction.Y);
+                }
+                if (position.y < 0) {
+                    position.y = 0;
+                    ball.changeDirection(Ball.Direction.Y);
+                }
+                ball.setPosition(position);
+            }
+
 }
