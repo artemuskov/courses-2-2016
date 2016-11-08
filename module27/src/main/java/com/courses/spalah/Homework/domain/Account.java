@@ -1,6 +1,8 @@
 package com.courses.spalah.Homework.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by Artem Uskov on 07.11.2016.
@@ -15,10 +17,20 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
+    @Column(name = "account_number", nullable = false)
     private String accountNumber;
+
+    @Column(name = "client_id", nullable = false)
     private Client clientId;
+
+    @Column(name = "balance", nullable = false)
     private Integer balance;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account", orphanRemoval = true)
+    private Collection<Transaction> transactions = new ArrayList<>();
+
+    public Account() {
+    }
 
     public Integer getId() {
         return id;
