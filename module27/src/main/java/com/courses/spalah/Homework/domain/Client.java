@@ -26,7 +26,7 @@ public class Client {
     @Column(name = "inn", nullable = false)
     private String inn;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clientId", orphanRemoval = true)
     private Collection<Account> clientAccounts = new ArrayList<Account>();
 
     public Client() {

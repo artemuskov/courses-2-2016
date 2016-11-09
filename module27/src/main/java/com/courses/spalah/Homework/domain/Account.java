@@ -1,5 +1,7 @@
 package com.courses.spalah.Homework.domain;
 
+import org.hibernate.annotations.ManyToAny;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
