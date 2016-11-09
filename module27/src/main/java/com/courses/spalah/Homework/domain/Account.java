@@ -22,14 +22,15 @@ public class Account {
     @Column(name = "account_number", nullable = false)
     private String accountNumber;
 
-    @Column(name = "client_id", nullable = false)
+    @ManyToOne()
+    @JoinColumn(name = "client_id", nullable = false)
     private Client clientId;
 
     @Column(name = "balance", nullable = false)
     private Integer balance;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account", orphanRemoval = true)
-    private Collection<Transaction> transactions = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account", orphanRemoval = true)
+//    private Collection<Transaction> transactions = new ArrayList<>();
 
     public Account() {
     }
