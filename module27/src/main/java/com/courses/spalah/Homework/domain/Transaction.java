@@ -14,10 +14,12 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer transactionId;
 
-    @Column(name = "sender_account", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "sender_account", nullable = false)
     private Account senderAccount;
 
-    @Column(name = "reciever_account", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "reciever_account", nullable = false)
     private Account recieverAccount;
 
     @Column(name = "sum_transation", nullable = false)

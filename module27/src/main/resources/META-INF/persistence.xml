@@ -8,7 +8,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!--Наши ентити-классы-->
-
+        <class>com.courses.spalah.Homework.domain.Account</class>
+        <class>com.courses.spalah.Homework.domain.Client</class>
+        <class>com.courses.spalah.Homework.domain.Transaction</class>
 
         <!--Проперки, которые используются провайдером.-->
         <!--В данном случае указываем Hibernate коннекшн к базе-->
