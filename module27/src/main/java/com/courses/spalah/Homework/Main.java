@@ -1,5 +1,6 @@
 package com.courses.spalah.Homework;
 
+import com.courses.spalah.Homework.domain.Account;
 import com.courses.spalah.Homework.domain.Client;
 import com.courses.spalah.Homework.service.AccountDAO;
 import com.courses.spalah.Homework.service.ClientDAO;
@@ -24,17 +25,23 @@ public class Main {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
+        clientDAO = new ClientDAO(entityManager);
+        accountDAO = new AccountDAO(entityManager);
 
 //        Client client1 = new Client();
 //        client1.setFirstName("Stas");
 //        client1.setLastName("Uskov");
 //        client1.setInn("1234567890asd");
 //
-//        clientDAO = new ClientDAO(entityManager);
 //        clientDAO.saveClient(client1);
 
-        Client client2 = clientDAO.getClient(0);
+        Client client2 = clientDAO.getClient(2);
         System.out.println(client2.toString());
+
+        Account accountClient2 = new Account("1234 5678 9012", client2);
+        System.out.println(accountClient2.toString());
+
+        accountDAO.saveAccount(accountClient2);
 
 
     }

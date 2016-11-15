@@ -27,10 +27,15 @@ public class Account {
     private Client clientId;
 
     @Column(name = "balance", nullable = false)
-    private Integer balance;
+    private Integer balance = 0;
 
 
     public Account() {
+    }
+
+    public Account(String accountNumber, Client clientId) {
+        this.accountNumber = accountNumber;
+        this.clientId = clientId;
     }
 
     public Account(Client clientId) {
