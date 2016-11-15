@@ -16,8 +16,12 @@ public class ClientDAO {
         this.entityManager = entityManager;
     }
 
-    public Client getClient() {
-        return client;
+    public Client getClient(int id) {
+        entityManager.getTransaction().begin();
+        Client foundClient = entityManager.find(Client.class, id);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return foundClient;
     }
 
     public void saveClient(Client client) {

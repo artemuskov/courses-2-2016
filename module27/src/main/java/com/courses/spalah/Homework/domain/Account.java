@@ -29,10 +29,12 @@ public class Account {
     @Column(name = "balance", nullable = false)
     private Integer balance;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account", orphanRemoval = true)
-//    private Collection<Transaction> transactions = new ArrayList<>();
 
     public Account() {
+    }
+
+    public Account(Client clientId) {
+        this.clientId = clientId;
     }
 
     public Integer getId() {
