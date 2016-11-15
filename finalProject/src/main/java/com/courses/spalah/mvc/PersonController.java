@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Ievgen Tararaka
  */
 @RestController
-@RequestMapping(value = "persons",  produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/persons",  produces = MediaType.APPLICATION_JSON_VALUE)
 public class PersonController {
     @Autowired
     private PersonService personService;
