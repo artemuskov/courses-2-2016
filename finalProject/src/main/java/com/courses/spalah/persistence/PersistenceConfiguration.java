@@ -1,4 +1,4 @@
-package com.courses.spalah;
+package com.courses.spalah.persistence;
 
 import java.util.Properties;
 
@@ -13,7 +13,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
  * @author Ievgen Tararaka
  */
 @Configuration
-public class RelationalConfiguration {
+public class PersistenceConfiguration {
     private static final String ENTITY_PACKAGE_TO_SCAN = "com.courses.spalah.domain";
 
     private static final String PROP_HIBERNATE_DIALECT = "hibernate.dialect";
@@ -59,7 +59,7 @@ public class RelationalConfiguration {
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/final");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/final_project_db");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
 

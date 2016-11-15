@@ -7,6 +7,7 @@
     <groupId>com.courses.spalah</groupId>
     <artifactId>finalProject</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -15,6 +16,7 @@
     </properties>
 
     <dependencies>
+        <!--Spring section-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -32,19 +34,31 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--Hibernate section-->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.36</version>
+        </dependency>
 
-
+        <!--Jstl section-->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
 
+        <!--Jackson section-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -79,6 +93,7 @@
                 <configuration>
                     <port>8080</port>
                     <path>/</path>
+                    <tomcatLoggingFile>log.txt</tomcatLoggingFile>
                 </configuration>
             </plugin>
         </plugins>

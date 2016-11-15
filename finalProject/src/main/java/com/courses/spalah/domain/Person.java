@@ -11,7 +11,7 @@ import javax.persistence.Id;
 /**
  * @author Ievgen Tararaka
  */
-@Entity
+@Entity(name = "person")
 public class Person {
     @Id
     @Column(name = "id")
