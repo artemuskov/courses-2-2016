@@ -16,15 +16,18 @@ public class AccountDAO {
         this.entityManager = entityManager;
     }
 
-    public Account getAccount() {
-        return account;
+    public Account getAccount(int id) {
+        entityManager.getTransaction().begin();
+        Account foundAccount = entityManager.find(Account.class, id);
+        entityManager.getTransaction().commit();
+        return foundAccount;
     }
 
     public void saveAccount(Account account) {
         entityManager.getTransaction().begin();
         entityManager.persist(account);
         entityManager.getTransaction().commit();
-
         this.account = account;
+        System.out.println("Account saved for client " + account.getClientId().getFirstName() +" "+ account.getClientId().getLastName());
     }
 }

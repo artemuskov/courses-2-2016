@@ -23,9 +23,15 @@ public class Transaction {
     private Account recieverAccount;
 
     @Column(name = "sum_transation", nullable = false)
-    private Integer sumTransaction;
+    private Integer sumTransaction = 0;
 
     public Transaction() {
+    }
+
+    public Transaction(Account senderAccount, Account recieverAccount, Integer sumTransaction) {
+        this.senderAccount = senderAccount;
+        this.recieverAccount = recieverAccount;
+        this.sumTransaction = sumTransaction;
     }
 
     public Integer getTransactionId() {

@@ -26,7 +26,7 @@ public class Client {
     @Column(name = "inn", nullable = false)
     private String inn;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clientId", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "clientId", orphanRemoval = true)
     private Collection<Account> clientAccounts = new ArrayList<Account>();
 
     public Client() {
@@ -62,6 +62,14 @@ public class Client {
 
     public void setInn(String inn) {
         this.inn = inn;
+    }
+
+    public Collection<Account> getClientAccounts() {
+        return clientAccounts;
+    }
+
+    public void setClientAccounts(Collection<Account> clientAccounts) {
+        this.clientAccounts = clientAccounts;
     }
 
     @Override
