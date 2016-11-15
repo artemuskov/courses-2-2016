@@ -1,5 +1,6 @@
 package com.courses.spalah.Homework.service;
 
+import com.courses.spalah.Homework.domain.Account;
 import com.courses.spalah.Homework.domain.Transaction;
 
 import javax.persistence.EntityManager;
@@ -21,8 +22,12 @@ public class TransactionDAO {
     }
 
     public void saveTransaction(Transaction transaction) {
+        Account senderAccount = transaction.getSenderAccount();
+        Account recieverAccount = transaction.getRecieverAccount();
         entityManager.getTransaction().begin();
         entityManager.persist(transaction);
+        senderAccount.setBalance(senderAccount.getBalance() - transaction.getSumTransaction());
+        recieverAccount.setBalance(recieverAccount.getBalance() + transaction.getSumTransaction());
         entityManager.getTransaction().commit();
         System.out.println("Success!");
         this.transaction = transaction;

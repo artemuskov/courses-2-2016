@@ -59,7 +59,7 @@ public class Main {
         Account account3 = accountDAO.getAccount(4);
         System.out.println(account3.toString());
 
-        Transaction transaction001 = new Transaction(accountClient2, accountClient1, 100);
+        Transaction transaction001 = new Transaction(accountDAO.getAccount(5), accountDAO.getAccount(7), 350);
         transactionDAO.saveTransaction(transaction001);
 
 
